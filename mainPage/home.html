@@ -6,6 +6,7 @@
     <title>웹페이지</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,14 +19,16 @@
         }
         .navbar {
             border-bottom: 1px solid #ddd;
+            position: relative;
+            height: 80px;
         }
         .navbar-brand {
             color: black !important;
-            font-weight: 300; /* 얇은 폰트 */
+            font-weight: 300;
         }
         .navbar-nav .nav-link {
             color: black !important;
-            font-weight: 300; /* 얇은 폰트 */
+            font-weight: 300;
             text-decoration: none;
         }
         .navbar-nav .nav-link:hover {
@@ -34,7 +37,7 @@
         .auth-links .nav-link {
             margin-left: 10px;
             color: black !important;
-            font-weight: 300; /* 얇은 폰트 */
+            font-weight: 300;
             text-decoration: none;
         }
         .auth-links .nav-link:hover {
@@ -42,25 +45,126 @@
         }
         .dropdown-menu .dropdown-item {
             color: black !important;
-            font-weight: 300; /* 얇은 폰트 */
+            font-weight: 300;
         }
         .dropdown-menu .dropdown-item:hover {
             background-color: #f8f9fa;
         }
-        .navbar-toggler-left {
-            position: absolute;
-            left: 15px;
-        }
-
         .carousel-item {
-            height: 50vh; /* 세로 크기를 50%로 줄임 */
+            height: 50vh;
             min-height: 300px;
         }
-
         .carousel-item img {
             object-fit: contain;
             height: 100%;
             width: 100%;
+        }
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+        .team-member h4 {
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+        .team-member p {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+        .social-buttons {
+            list-style: none;
+            padding: 0;
+        }
+        .social-buttons li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .social-buttons li a {
+            color: #333;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        .social-buttons li a:hover {
+            color: #007bff;
+        }
+        .slide-menu {
+            display: none;
+            background-color: #343a40;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        .slide-menu a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            margin: 1rem 0;
+        }
+        .slide-menu.show {
+            display: flex;
+            transform: translateY(0);
+        }
+        .navbar-toggler {
+            z-index: 10000;
+        }
+        /* 반응형 네비게이션 바 스타일 */
+        @media (max-width: 992px) {
+            .navbar {
+                height: 100px;
+            }
+            .navbar-brand {
+                left: 50%;
+                transform: translateX(-50%);
+                white-space: nowrap;
+                position: absolute;
+            }
+            .navbar-nav {
+                text-align: center;
+                width: 100%;
+            }
+            .navbar-nav .nav-item {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+            .navbar-nav .nav-link {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+            .navbar-toggler {
+                position: absolute;
+                left: 15px;
+            }
+        }
+        @media (min-width: 992px) {
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .navbar-nav {
+                display: flex;
+                justify-content: flex-end;
+                width: auto;
+            }
+            .navbar-brand {
+                position: static;
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -73,12 +177,11 @@
 
 <!-- 네비게이션 바 -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#">룩북 사이트(제목미정)</a>
+    <button class="navbar-toggler" type="button" id="menuButton">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand mx-auto" href="#">룩북 사이트(제목미정)</a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-
+    <div class="collapse navbar-collapse">
         <div class="navbar-nav auth-links ml-auto">
             <a class="nav-link" href="#">Brand</a>
             <a class="nav-link" href="#">About</a>
@@ -87,6 +190,14 @@
     </div>
 </nav>
 
+<!-- 상단에서 슬라이드 되는 메뉴 -->
+<div class="slide-menu" id="slideMenu">
+    <a href="#">Brand</a>
+    <a href="#">About</a>
+    <a href="#">LOGIN</a>
+    <button class="btn btn-secondary mt-3" id="closeButton">Close</button>
+</div>
+
 <div class="container mt-4">
     <!-- Carousel 섹션 시작 -->
     <div id="brandCarousel" class="carousel slide mb-4" data-ride="carousel">
@@ -94,10 +205,11 @@
             <li data-target="#brandCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#brandCarousel" data-slide-to="1"></li>
             <li data-target="#brandCarousel" data-slide-to="2"></li>
+            <li data-target="#brandCarousel" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../assets/img/headerlookbook/유니클로%20룩북%201.png" class="d-block w-100" alt="자라">
+                <img src="../assets/img/headerlookbook/유니클로%20룩북%201.png" class="d-block w-100" alt="유니클로">
             </div>
             <div class="carousel-item">
                 <img src="../assets/img/headerlookbook/유니클로%20룩북%202.png" class="d-block w-100" alt="유니클로">
@@ -108,7 +220,6 @@
             <div class="carousel-item">
                 <img src="../assets/img/headerlookbook/무탠룩북1.png" class="d-block w-100" alt="유니클로">
             </div>
-
         </div>
         <a class="carousel-control-prev" href="#brandCarousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -126,8 +237,6 @@
         <div class="container">
             <!-- 포트폴리오 섹션 헤딩 -->
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">SPA Brand</h2>
-            <!-- 아이콘 구분선 -->
-
             <!-- 포트폴리오 그리드 아이템들 -->
             <div class="row justify-content-center">
                 <!-- 포트폴리오 아이템 1 -->
@@ -136,7 +245,7 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="../assets/img/portfolio/자라.png" alt="..." />
+                        <img class="img-fluid" src="../assets/img/portfolio/자라.png" alt="자라" />
                     </div>
                 </div>
                 <!-- 포트폴리오 아이템 2 -->
@@ -145,7 +254,7 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="../assets/img/portfolio/무탠.png" alt="..." />
+                        <img class="img-fluid" src="../assets/img/portfolio/무탠.png" alt="무탠" />
                     </div>
                 </div>
                 <!-- 포트폴리오 아이템 3 -->
@@ -154,7 +263,7 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="../assets/img/portfolio/코스.png" alt="..." />
+                        <img class="img-fluid" src="../assets/img/portfolio/코스.png" alt="코스" />
                     </div>
                 </div>
                 <!-- 포트폴리오 아이템 4 -->
@@ -163,7 +272,7 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="../assets/img/portfolio/흐앤므.png" alt="..." />
+                        <img class="img-fluid" src="../assets/img/portfolio/흐앤므.png" alt="흐앤므" />
                     </div>
                 </div>
                 <!-- 포트폴리오 아이템 5 -->
@@ -172,7 +281,7 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="../assets/img/portfolio/유니클로.png" alt="..." />
+                        <img class="img-fluid" src="../assets/img/portfolio/유니클로.png" alt="유니클로" />
                     </div>
                 </div>
                 <!-- 포트폴리오 아이템 6 -->
@@ -181,7 +290,7 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="../assets/img/portfolio/탑텐.png" alt="..." />
+                        <img class="img-fluid" src="../assets/img/portfolio/탑텐.png" alt="탑텐" />
                     </div>
                 </div>
             </div>
@@ -189,12 +298,89 @@
     </section>
     <!-- 포트폴리오 섹션 끝 -->
 </div>
+<!-- 팀 섹션 -->
+<section class="page-section" id="team" style="background-color: #f8f9fa;">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+            <p class="section-subheading text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+        <div class="row">
+            <!-- 팀원 정보 섹션 1 -->
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="../assets/img/team/1.jpg" alt="...">
+                    <h4>조도현</h4>
+                    <p class="text-muted">조장</p>
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="https://github.com/parveen">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 팀원 정보 섹션 2 -->
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="../assets/img/team/2.jpg" alt="...">
+                    <h4>강인석</h4>
+                    <p class="text-muted">조원</p>
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="https://github.com/diana">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 팀원 정보 섹션 3 -->
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="../assets/img/profile/프로필사진 예시.png" alt="...">
+                    <h4>공병선</h4>
+                    <p class="text-muted">조원</p>
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="https://github.com/bbbbs17">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 푸터 섹션 -->
+<footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+        <p class="text-center text-muted mb-0">
+            <small>© Your Website Name 2024. All Rights Reserved.</small>
+        </p>
+    </div>
+</footer>
 
 <!-- jQuery, Popper.js, and Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<script>
+    // 메뉴 버튼 클릭 시 부분 메뉴 표시/숨기기
+    document.querySelector('#menuButton').addEventListener('click', function() {
+        document.getElementById('slideMenu').classList.toggle('show');
+        document.getElementById('menuButton').style.display = 'none';
+    });
 
+    // 닫기 버튼 클릭 시 슬라이드 메뉴 숨기기
+    document.querySelector('#closeButton').addEventListener('click', function() {
+        document.getElementById('slideMenu').classList.toggle('show');
+        document.getElementById('menuButton').style.display = 'block';
+    });
+</script>
 </body>
 </html>
