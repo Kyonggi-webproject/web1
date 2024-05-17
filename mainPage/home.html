@@ -19,7 +19,11 @@
         }
         .navbar {
             border-bottom: 1px solid #ddd;
-            position: relative;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: white;
             height: 80px;
         }
         .navbar-brand {
@@ -166,6 +170,46 @@
                 transform: none;
             }
         }
+        /* 포트폴리오 섹션 아래에 간격 추가 */
+        .portfolio {
+            margin-bottom: 50px;
+        }
+        /* 모든 섹션의 위쪽 간격 추가 */
+        .page-section {
+            padding-top: 50px;
+        }
+        /* 팀원 섹션의 이미지 크기 줄이기 */
+        @media (max-width: 768px) {
+            .team-member img {
+                width: 100px;
+                height: 100px;
+            }
+            .team-member h4 {
+                font-size: 16px;
+            }
+            .team-member p {
+                font-size: 12px;
+            }
+            .team-member {
+                margin-bottom: 15px;
+            }
+            .team-member .social-buttons li a {
+                font-size: 14px;
+            }
+            .row.team-row {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+            }
+            .team-member {
+                flex: 0 0 auto;
+                margin-right: 15px;
+            }
+        }
+        .spacer {
+            margin-top: 80px; /* Adjust this value based on the height of your fixed navbar */
+        }
     </style>
 </head>
 <body>
@@ -183,22 +227,22 @@
     </button>
     <div class="collapse navbar-collapse">
         <div class="navbar-nav auth-links ml-auto">
-            <a class="nav-link" href="#">Brand</a>
-            <a class="nav-link" href="#">About</a>
-            <a class="nav-link" href="#">LOGIN</a>
+            <a class="nav-link" href="#brandCarousel">Slide</a>
+            <a class="nav-link" href="#portfolio">Brand</a>
+            <a class="nav-link" href="#team">About</a>
         </div>
     </div>
 </nav>
 
 <!-- 상단에서 슬라이드 되는 메뉴 -->
 <div class="slide-menu" id="slideMenu">
-    <a href="#">Brand</a>
-    <a href="#">About</a>
-    <a href="#">LOGIN</a>
+    <a href="#brandCarousel">Slide</a>
+    <a href="#portfolio">Brand</a>
+    <a href="#team">About</a>
     <button class="btn btn-secondary mt-3" id="closeButton">Close</button>
 </div>
 
-<div class="container mt-4">
+<div class="container mt-4 spacer">
     <!-- Carousel 섹션 시작 -->
     <div id="brandCarousel" class="carousel slide mb-4" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -298,6 +342,7 @@
     </section>
     <!-- 포트폴리오 섹션 끝 -->
 </div>
+
 <!-- 팀 섹션 -->
 <section class="page-section" id="team" style="background-color: #f8f9fa;">
     <div class="container">
@@ -305,7 +350,7 @@
             <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
             <p class="section-subheading text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
-        <div class="row">
+        <div class="row team-row">
             <!-- 팀원 정보 섹션 1 -->
             <div class="col-lg-4">
                 <div class="team-member">
@@ -380,6 +425,23 @@
     document.querySelector('#closeButton').addEventListener('click', function() {
         document.getElementById('slideMenu').classList.toggle('show');
         document.getElementById('menuButton').style.display = 'block';
+    });
+
+    // 부드러운 스크롤 기능 추가 및 메뉴 항목 클릭 시 메뉴 닫기
+    document.querySelectorAll('.nav-link, .slide-menu a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+            document.getElementById('slideMenu').classList.remove('show');
+            document.getElementById('menuButton').style.display = 'block';
+        });
+    });
+
+    // 'Slide' 버튼 클릭 시 상단으로 스크롤
+    document.querySelector('.nav-link[href="#brandCarousel"]').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 </script>
 </body>
