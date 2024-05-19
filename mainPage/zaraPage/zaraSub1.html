@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZARA LookBook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 기본 스타일 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #e6e6e6; /* 텍스트 색상을 밝게 설정 */
+            background-color: #000; /* 배경색을 검은색으로 설정 */
+        }
+
+        /* 헤더 스타일 */
+        .header {
+            background: #222;
+            color: #e6e6e6;
+            padding: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .header nav ul li {
+            margin-left: 2rem;
+        }
+
+        .header nav ul li a {
+            color: #e6e6e6;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .header nav ul li a:hover {
+            color: #ff6347;
+        }
+
+        /* 섹션 스타일 */
+        .section {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #e6e6e6;
+            margin-bottom: 2rem;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            background: #222;
+            padding: 1rem 0;
+        }
+
+        .menu a {
+            color: #e6e6e6;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0 1.5rem;
+            padding-bottom: 0.5rem;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #ff6347;
+            border-bottom: 2px solid #ff6347;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr); /* 한 줄에 6개의 아이템 */
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0; /* 경계선 없애기 */
+            height: 300px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .gallery-item-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+            color: #e6e6e6;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* footer 스타일 */
+        .footer {
+            background: #222;
+            color: #e6e6e6;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <h1>ZARA LookBook</h1>
+        <nav>
+            <ul>
+                <li><a href="#men" onclick="showSection('men')">Men</a></li>
+                <li><a href="#women" onclick="showSection('women')">Women</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<nav class="menu">
+    <a href="#men" onclick="showSection('men')">Men</a>
+    <a href="#women" onclick="showSection('women')">Women</a>
+</nav>
+
+<section id="men" class="section">
+    <h2>Men's Collection</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="zaraImg/men1.png" alt="Men Look 1">
+            <div class="gallery-item-info">
+                PRINTED SATIN SHIRT<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/men2.png" alt="Men Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <!-- Add more gallery items as needed -->
+    </div>
+</section>
+
+<section id="women" class="section" style="display:none;">
+    <h2>Women's Collection</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="zaraImg/women1.png" alt="Women Look 1">
+            <div class="gallery-item-info">
+                PRINTED SATIN SHIRT<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/women2.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <!-- Add more gallery items as needed -->
+    </div>
+</section>
+
+<footer id="contact" class="footer">
+    <div class="container">
+        <p>&copy; 2024 ZARA. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+    function showSection(sectionId) {
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.display = 'none';
+        });
+        document.getElementById(sectionId).style.display = 'block';
+    }
+</script>
+</body>
+</html>
