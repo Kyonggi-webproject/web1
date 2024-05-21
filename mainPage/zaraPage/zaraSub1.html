@@ -16,13 +16,13 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #e6e6e6; /* 텍스트 색상을 밝게 설정 */
-            background-color: #000; /* 배경색을 검은색으로 설정 */
+            color: #333; /* 텍스트 색상을 진한 회색으로 설정 */
+            background-color: #f4f4f4; /* 배경색을 밝은 회색으로 설정 */
         }
 
         /* 헤더 스타일 */
         .header {
-            background: #222;
+            background: #1a1a2e; /* 다크 네이비 배경 */
             color: #e6e6e6;
             padding: 1rem 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -33,7 +33,7 @@
 
         .header .container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* 중앙 정렬 */
             align-items: center;
             padding: 0 2rem;
         }
@@ -62,7 +62,7 @@
         }
 
         .header nav ul li a:hover {
-            color: #ff6347;
+            color: #d4af37; /* 메탈릭 골드 강조 */
         }
 
         /* 섹션 스타일 */
@@ -73,14 +73,14 @@
 
         .section h2 {
             font-size: 2.5rem;
-            color: #e6e6e6;
+            color: #1a1a2e; /* 다크 네이비 텍스트 */
             margin-bottom: 2rem;
         }
 
         .menu {
             display: flex;
             justify-content: center;
-            background: #222;
+            background: #1a1a2e;
             padding: 1rem 0;
         }
 
@@ -95,13 +95,14 @@
         }
 
         .menu a:hover {
-            color: #ff6347;
-            border-bottom: 2px solid #ff6347;
+            color: #d4af37; /* 메탈릭 골드 강조 */
+            border-bottom: 2px solid #d4af37;
         }
 
         .gallery {
             display: grid;
             grid-template-columns: repeat(6, 1fr); /* 한 줄에 6개의 아이템 */
+            gap: 1rem; /* 갤러리 아이템 간격 추가 */
         }
 
         .gallery-item {
@@ -109,6 +110,7 @@
             overflow: hidden;
             border-radius: 0; /* 경계선 없애기 */
             height: 300px;
+            transition: transform 0.3s ease; /* 사진 확대 애니메이션 */
         }
 
         .gallery-item img {
@@ -116,6 +118,11 @@
             height: 100%;
             display: block;
             object-fit: cover;
+            transition: transform 0.3s ease; /* 사진 확대 애니메이션 */
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05); /* 사진 확대 효과 */
         }
 
         .gallery-item-info {
@@ -128,11 +135,45 @@
             padding: 0.5rem;
             text-align: center;
             font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease; /* 글자 나타나는 애니메이션 */
+        }
+
+        .gallery-item:hover .gallery-item-info {
+            opacity: 1; /* 글자 나타나기 */
+        }
+
+        /* 반응형 스타일 */
+        @media (max-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr); /* 한 줄에 3개의 아이템 */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr); /* 한 줄에 2개의 아이템 */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                display: grid;
+                grid-template-columns: 1fr 1fr; /* 한 줄에 2개의 아이템 */
+            }
+
+            .gallery-item:first-child {
+                grid-column: 1 / -1; /* 첫 번째 아이템은 한 줄을 모두 차지 */
+            }
+
+            .gallery-item img {
+                height: auto; /* 이미지의 높이를 자동으로 조정 */
+            }
         }
 
         /* footer 스타일 */
         .footer {
-            background: #222;
+            background: #1a1a2e; /* 다크 네이비 배경 */
             color: #e6e6e6;
             text-align: center;
             padding: 1rem 0;
@@ -144,18 +185,13 @@
             margin: 0;
             font-size: 0.9rem;
         }
+
     </style>
 </head>
 <body>
 <header class="header">
     <div class="container">
         <h1>ZARA LookBook</h1>
-        <nav>
-            <ul>
-                <li><a href="#men" onclick="showSection('men')">Men</a></li>
-                <li><a href="#women" onclick="showSection('women')">Women</a></li>
-            </ul>
-        </nav>
     </div>
 </header>
 
@@ -187,17 +223,503 @@
     <h2>Women's Collection</h2>
     <div class="gallery">
         <div class="gallery-item">
-            <img src="zaraImg/women1.png" alt="Women Look 1">
+            <img src="zaraImg/zaraSubImgWomen/zara%20w%201.png" alt="Women Look 1">
             <div class="gallery-item-info">
                 PRINTED SATIN SHIRT<br>₩ 59,900
             </div>
         </div>
         <div class="gallery-item">
-            <img src="zaraImg/women2.png" alt="Women Look 2">
+            <img src="zaraImg/zaraSubImgWomen/zara%20w%202.png" alt="Women Look 2">
             <div class="gallery-item-info">
                 CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
             </div>
         </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라1.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라2.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라3.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라4.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라5.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라6.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라7.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라8.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라9.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라10.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라11.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라12.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라13.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라14.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라15.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라16.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라17.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/자라18.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/19.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/20.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/21.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/22.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/24.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/25.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/26.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/27.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/28.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/29.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/31.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/32.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/33.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/34.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/35.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/36.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/37.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+             </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/38.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/39.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/40.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <!-- 반복된 코드 -->
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/41.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/42.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/43.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/44.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/45.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/46.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/47.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/48.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/49.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/50.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/51.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/52.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/53.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/54.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/55.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/56.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/57.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/58.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/59.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/60.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/61.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/62.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/63.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/64.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/65.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/66.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/67.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/68.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/69.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/70.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/71.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/72.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/73.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/74.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/75.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/76.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/77.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/78.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/79.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/80.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/81.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="zaraImg/zaraSubImgWomen/82.png" alt="Women Look 2">
+            <div class="gallery-item-info">
+                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
+            </div>
+        </div>
+
+    </div>
+
         <!-- Add more gallery items as needed -->
     </div>
 </section>
