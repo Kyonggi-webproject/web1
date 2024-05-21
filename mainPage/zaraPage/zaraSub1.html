@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZARA LookBook</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
         /* 기본 스타일 초기화 */
         * {
@@ -14,15 +14,15 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: #333; /* 텍스트 색상을 진한 회색으로 설정 */
-            background-color: #f4f4f4; /* 배경색을 밝은 회색으로 설정 */
+            color: #333;
+            background-color: #f4f4f4;
         }
 
         /* 헤더 스타일 */
         .header {
-            background: #1a1a2e; /* 다크 네이비 배경 */
+            background: #1a1a2e;
             color: #e6e6e6;
             padding: 1rem 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -33,7 +33,7 @@
 
         .header .container {
             display: flex;
-            justify-content: center; /* 중앙 정렬 */
+            justify-content: center;
             align-items: center;
             padding: 0 2rem;
         }
@@ -62,18 +62,19 @@
         }
 
         .header nav ul li a:hover {
-            color: #d4af37; /* 메탈릭 골드 강조 */
+            color: #4f8cff;
         }
 
         /* 섹션 스타일 */
         .section {
             padding: 3rem 1rem;
             text-align: center;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .section h2 {
             font-size: 2.5rem;
-            color: #1a1a2e; /* 다크 네이비 텍스트 */
+            color: #1a1a2e;
             margin-bottom: 2rem;
         }
 
@@ -95,22 +96,23 @@
         }
 
         .menu a:hover {
-            color: #d4af37; /* 메탈릭 골드 강조 */
-            border-bottom: 2px solid #d4af37;
+            color: #4f8cff;
+            border-bottom: 2px solid #4f8cff;
         }
 
+        /* 갤러리 스타일 */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(6, 1fr); /* 한 줄에 6개의 아이템 */
-            gap: 1rem; /* 갤러리 아이템 간격 추가 */
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 0; /* 경계선 없애기 */
+            border-radius: 10px;
             height: 300px;
-            transition: transform 0.3s ease; /* 사진 확대 애니메이션 */
+            transition: transform 0.3s ease;
         }
 
         .gallery-item img {
@@ -118,11 +120,11 @@
             height: 100%;
             display: block;
             object-fit: cover;
-            transition: transform 0.3s ease; /* 사진 확대 애니메이션 */
+            transition: transform 0.3s ease;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.05); /* 사진 확대 효과 */
+            transform: scale(1.05);
         }
 
         .gallery-item-info {
@@ -130,50 +132,49 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+            background: rgba(0, 0, 0, 0.5);
             color: #e6e6e6;
             padding: 0.5rem;
             text-align: center;
             font-size: 0.9rem;
             opacity: 0;
-            transition: opacity 0.3s ease; /* 글자 나타나는 애니메이션 */
+            transition: opacity 0.3s ease;
         }
 
         .gallery-item:hover .gallery-item-info {
-            opacity: 1; /* 글자 나타나기 */
+            opacity: 1;
         }
 
         /* 반응형 스타일 */
         @media (max-width: 1024px) {
             .gallery {
-                grid-template-columns: repeat(3, 1fr); /* 한 줄에 3개의 아이템 */
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
         @media (max-width: 768px) {
             .gallery {
-                grid-template-columns: repeat(2, 1fr); /* 한 줄에 2개의 아이템 */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 480px) {
             .gallery {
-                display: grid;
-                grid-template-columns: 1fr 1fr; /* 한 줄에 2개의 아이템 */
+                grid-template-columns: 1fr 1fr;
             }
 
             .gallery-item:first-child {
-                grid-column: 1 / -1; /* 첫 번째 아이템은 한 줄을 모두 차지 */
+                grid-column: 1 / -1;
             }
 
             .gallery-item img {
-                height: auto; /* 이미지의 높이를 자동으로 조정 */
+                height: auto;
             }
         }
 
         /* footer 스타일 */
         .footer {
-            background: #1a1a2e; /* 다크 네이비 배경 */
+            background: #1a1a2e;
             color: #e6e6e6;
             text-align: center;
             padding: 1rem 0;
@@ -186,6 +187,28 @@
             font-size: 0.9rem;
         }
 
+        /* 브랜드 룩북 동영상 스타일 */
+        .brand-video {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+        }
+
+        .brand-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -196,11 +219,19 @@
 </header>
 
 <nav class="menu">
+    <a href="#brand-video" onclick="showSection('brand-video')">Brand Video</a>
     <a href="#men" onclick="showSection('men')">Men</a>
     <a href="#women" onclick="showSection('women')">Women</a>
 </nav>
 
-<section id="men" class="section">
+<!-- 브랜드 룩북 동영상 섹션 -->
+<section id="brand-video" class="section">
+    <div class="brand-video">
+        <iframe src="https://www.youtube.com/embed/PSF8-s11jfc" frameborder="0" allowfullscreen></iframe>
+    </div>
+</section>
+
+<section id="men" class="section" style="display:none;">
     <h2>Men's Collection</h2>
     <div class="gallery">
         <div class="gallery-item">
@@ -444,7 +475,7 @@
             <img src="zaraImg/zaraSubImgWomen/37.png" alt="Women Look 2">
             <div class="gallery-item-info">
                 CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
-             </div>
+            </div>
         </div>
         <div class="gallery-item">
             <img src="zaraImg/zaraSubImgWomen/38.png" alt="Women Look 2">
@@ -604,12 +635,6 @@
             </div>
         </div>
         <div class="gallery-item">
-            <img src="zaraImg/zaraSubImgWomen/64.png" alt="Women Look 2">
-            <div class="gallery-item-info">
-                CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
-            </div>
-        </div>
-        <div class="gallery-item">
             <img src="zaraImg/zaraSubImgWomen/65.png" alt="Women Look 2">
             <div class="gallery-item-info">
                 CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
@@ -717,9 +742,6 @@
                 CONTRAST SATIN BERMUDA SHORTS<br>₩ 59,900
             </div>
         </div>
-
-    </div>
-
         <!-- Add more gallery items as needed -->
     </div>
 </section>
