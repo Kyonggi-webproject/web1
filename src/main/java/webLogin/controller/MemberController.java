@@ -1,11 +1,15 @@
 package webLogin.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -120,11 +124,23 @@ public class MemberController {
     private void addAuthenticatedUserNameToModel(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null && authentication.isAuthenticated() && !(authentication instanceof AnonymousAuthenticationToken)) {
-            String username = authentication.getName();
-            Member member = memberRepository.findByEmail(username).orElse(null);
+            String email = authentication.getName();
+            Member member = memberRepository.findByEmail(email).orElse(null);
             if (member != null) {
                 model.addAttribute("username", member.getName());
             }
         }
     }
+
+    @GetMapping("/current-user")
+    public ResponseEntity<MemberDTO> getCurrentUser(Authentication authentication) {
+        if (authentication != null && authentication.isAuthenticated() && !(authentication instanceof AnonymousAuthenticationToken)) {
+            String email = authentication.getName();
+            Member member = memberRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("No user found with the email: " + email));
+            MemberDTO memberDTO = new MemberDTO(member.getId(), member.getEmail(), null, member.getPhoneNumber(), member.getName());
+            return ResponseEntity.ok(memberDTO);
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+    }
+
 }
