@@ -43,7 +43,7 @@ public class EmailSendService {
 
 
         String title = "회원 가입 인증 이메일 입니다.";
-        String content = "BYTE The BLUES를 방문해주셔서 감사합니다." +
+        String content = "LookBook Archive를 방문해주셔서 감사합니다." +
                 "<br><br>" +
                 "인증 번호는 " + tempPassword + "입니다." +
                 "<br>" +

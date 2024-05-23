@@ -214,7 +214,7 @@
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Lookbook Archive</a>
+    <a class="navbar-brand" href="/home">Lookbook Archive</a>
     <button class="navbar-toggler" type="button" id="menuButton">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -224,21 +224,28 @@
             <a class="nav-link" href="#portfolio">Brand</a>
             <a class="nav-link" href="#team">About</a>
             <th:block th:if="${username}">
-                <span class="nav-link">Welcome, <span th:text="${username}"></span></span>
+                <span class="nav-link"><a href="/myPage">Welcome, <span th:text="${username}"></span></a></span>
                 <a class="nav-link" href="/logout">Logout</a>
             </th:block>
             <th:block th:unless="${username}">
                 <a class="nav-link" href="/login">Login</a>
             </th:block>
-
         </div>
     </div>
 </nav>
 
 <div class="slide-menu" id="slideMenu">
+    <th:block th:if="${username}">
+        <span class="nav-link"><a href="/myPage">Welcome, <span th:text="${username}"></span></a></span>
+        <a class="nav-link" href="/logout">Logout</a>
+    </th:block>
     <a href="#brandCarousel">Slide</a>
     <a href="#portfolio">Brand</a>
     <a href="#team">About</a>
+
+    <th:block th:unless="${username}">
+        <a class="nav-link" href="/login">Login</a>
+    </th:block>
     <button class="btn btn-secondary mt-3" id="closeButton">Close</button>
 </div>
 
@@ -283,7 +290,7 @@
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <a href="zaraPage/zara.html">
+                        <a th:href="@{/zara}">
                             <img class="img-fluid" src="/assets/img/brandImg/자라.png" alt="자라" />
                         </a>
                     </div>
@@ -426,7 +433,6 @@
             }
         });
     });
-
 
     document.querySelector('.nav-link[href="#brandCarousel"]').addEventListener('click', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });

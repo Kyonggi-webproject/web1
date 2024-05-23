@@ -32,27 +32,13 @@ public class MemberController {
 
     @GetMapping("/")
     public String defaultHome(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.isAuthenticated() && !(authentication instanceof AnonymousAuthenticationToken)) {
-            String username = authentication.getName();
-            Member member = memberRepository.findByEmail(username).orElse(null);
-            if (member != null) {
-                model.addAttribute("username", member.getName());
-            }
-        }
+        addAuthenticatedUserNameToModel(model);
         return "home";
     }
 
     @GetMapping("/home")
     public String home(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.isAuthenticated() && !(authentication instanceof AnonymousAuthenticationToken)) {
-            String username = authentication.getName();
-            Member member = memberRepository.findByEmail(username).orElse(null);
-            if (member != null) {
-                model.addAttribute("username", member.getName());
-            }
-        }
+        addAuthenticatedUserNameToModel(model);
         return "home";
     }
 
@@ -84,7 +70,8 @@ public class MemberController {
     }
 
     @GetMapping("/myPage")
-    public String myPage(){
+    public String myPage(Model model){
+        addAuthenticatedUserNameToModel(model);
         return "myPage";
     }
 
@@ -117,5 +104,27 @@ public class MemberController {
         String email = authentication.getName();
         memberService.deleteByEmail(email);
         return "redirect:/login?logout";
+    }
+
+    @GetMapping("/zara")
+    public String zaraPage(Model model) {
+        addAuthenticatedUserNameToModel(model);
+        return "zara";
+    }
+    @GetMapping("/zaraSub1")
+    public String zaraSubPage(Model model) {
+        addAuthenticatedUserNameToModel(model);
+        return "zaraSub1";
+    }
+
+    private void addAuthenticatedUserNameToModel(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated() && !(authentication instanceof AnonymousAuthenticationToken)) {
+            String username = authentication.getName();
+            Member member = memberRepository.findByEmail(username).orElse(null);
+            if (member != null) {
+                model.addAttribute("username", member.getName());
+            }
+        }
     }
 }
