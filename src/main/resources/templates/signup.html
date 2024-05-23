@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계정 만들기</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .navbar {
+            width: 100%;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+        }
+        .navbar-brand {
+            font-size: 36px;
+            font-weight: 300;
+            color: black !important;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+        }
+        h2 {
+            text-align: left;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-control {
+            height: 45px;
+            border-radius: 0;
+        }
+        .btn {
+            height: 45px;
+            border-radius: 0;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #333;
+        }
+        .error {
+            color: red; /* 에러 메시지는 빨간색으로 표시 */
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 네비게이션 바 -->
+<nav class="navbar">
+    <span class="navbar-brand">Lookbook Archive</span>
+</nav>
+
+<div class="container">
+    <h2>개인정보</h2>
+    <form action="/member" method="post">
+        <div class="form-group">
+            <label for="name">이름</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="이름" required>
+        </div>
+        <div class="form-group">
+            <label for="email">이메일</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="이메일" required>
+        </div>
+        <div class="form-group">
+            <label for="password">비밀번호</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호" required oninput="validatePassword()">
+        </div>
+        <div class="form-group">
+            <label for="confirm_password">비밀번호 확인</label>
+            <input type="password" class="form-control" id="confirm_password" placeholder="비밀번호 확인" required oninput="validatePassword()">
+            <div id="password_error" class="error"></div>
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">전화번호</label>
+            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="전화번호" required>
+        </div>
+        <button type="submit" class="btn">계정 만들기</button>
+    </form>
+</div>
+
+<script>
+    function validatePassword() {
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirm_password").value;
+        const errorMessage = document.getElementById("password_error");
+
+        if (password !== confirmPassword) {
+            errorMessage.textContent = "비밀번호가 일치하지 않습니다.";
+        } else {
+            errorMessage.textContent = ""; // 일치할 경우 에러 메시지 제거
+        }
+    }
+</script>
+
+<!-- jQuery, Popper.js, and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
