@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.*;
 import webLogin.member.Favorite;
 import webLogin.service.FavoriteService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/favorites")
@@ -27,12 +29,15 @@ public class FavoriteController {
     }
 
     @DeleteMapping("/delete/{memberId}/{photoId}")
-    public ResponseEntity<String> deleteFavorite(@PathVariable Long memberId, @PathVariable Long photoId) {
+    public ResponseEntity<Map<String, String>> deleteFavorite(@PathVariable Long memberId, @PathVariable Long photoId) {
+        Map<String, String> response = new HashMap<>();
         try {
             favoriteService.deleteFavorite(memberId, photoId);
-            return ResponseEntity.ok("Favorite deleted successfully");
+            response.put("message", "Favorite deleted successfully");
+            return ResponseEntity.ok(response);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(404).body(e.getMessage());
+            response.put("message", e.getMessage());
+            return ResponseEntity.status(404).body(response);
         }
     }
 }

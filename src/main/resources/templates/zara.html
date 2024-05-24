@@ -263,6 +263,26 @@
       opacity: 1;
     }
 
+    /* home 버튼 스타일 */
+    .home-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #e60012;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .home-button:hover {
+      background: #cc000f;
+    }
+
     /* footer 스타일 */
     .footer {
       background: #000;
@@ -282,7 +302,7 @@
 <body>
 <header class="header">
   <div class="container">
-    <h1 onclick="location.href='/home'">ZARA LookBook</h1>
+    <h1>ZARA LookBook</h1>
     <button class="navbar-toggler" id="menuButton">
       &#9776;
     </button>
@@ -367,6 +387,8 @@
     <p>&copy; 2024 ZARA. All Rights Reserved.</p>
   </div>
 </footer>
+
+<button class="home-button" onclick="location.href='/home'">LookBook Archive로 돌아가기</button>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

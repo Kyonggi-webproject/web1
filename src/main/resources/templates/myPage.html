@@ -1,4 +1,3 @@
-<!-- myPage.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -142,9 +141,7 @@
         </div>
         <div id="zara" class="tab-content" style="display:none;">
             <h2>ZARA</h2>
-            <img src="/assets/img/zaraImg1.jpg" alt="ZARA Image 1">
-            <img src="/assets/img/zaraImg2.jpg" alt="ZARA Image 2">
-            <p>스크랩한 정보가 여기에 표시됩니다.</p>
+            <div id="zara-photos" class="gallery"></div>
         </div>
         <!-- 나머지 탭 콘텐츠 -->
     </div>
@@ -169,24 +166,16 @@
             .then(response => response.json())
             .then(data => {
                 const favoritePhotos = document.getElementById('favorite-photos');
+                const zaraPhotos = document.getElementById('zara-photos'); // ZARA 사진 영역
                 if (favoritePhotos) {
                     favoritePhotos.innerHTML = '';
+                    zaraPhotos.innerHTML = ''; // ZARA 사진 영역 초기화
                     data.forEach(photo => {
-                        const galleryItem = document.createElement('div');
-                        galleryItem.className = 'gallery-item';
-
-                        const img = document.createElement('img');
-                        img.src = `/assets/img/zaraImg/zaraSubImgWomen/${photo.photoId}.png`;
-                        img.alt = `Favorite photo ${photo.photoId}`;
-
-                        const deleteButton = document.createElement('button');
-                        deleteButton.className = 'delete-btn';
-                        deleteButton.innerText = '삭제';
-                        deleteButton.onclick = () => deleteFavorite(memberId, photo.photoId);
-
-                        galleryItem.appendChild(img);
-                        galleryItem.appendChild(deleteButton);
+                        const galleryItem = createGalleryItem(memberId, photo.photoId);
                         favoritePhotos.appendChild(galleryItem);
+
+                        // ZARA 사진 영역에도 동일한 사진 추가
+                        zaraPhotos.appendChild(galleryItem.cloneNode(true));
                     });
                 } else {
                     console.error("'favorite-photos' element not found");
@@ -195,9 +184,32 @@
             .catch(error => console.error('Error:', error));
     }
 
+    function createGalleryItem(memberId, photoId) {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        galleryItem.id = `favorite-${photoId}`;
+
+        const img = document.createElement('img');
+        img.src = `/assets/img/zaraImg/zaraSubImgWomen/${photoId}.png`;
+        img.alt = `Favorite photo ${photoId}`;
+
+        const deleteButton = document.createElement('button');
+        deleteButton.className = 'delete-btn';
+        deleteButton.innerText = '삭제';
+        deleteButton.onclick = () => deleteFavorite(memberId, photoId);
+
+        galleryItem.appendChild(img);
+        galleryItem.appendChild(deleteButton);
+
+        return galleryItem;
+    }
+
     function deleteFavorite(memberId, photoId) {
         fetch(`/favorites/delete/${memberId}/${photoId}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
             .then(response => {
                 if (!response.ok) {
@@ -207,7 +219,8 @@
             })
             .then(data => {
                 console.log('Favorite deleted successfully:', data);
-                loadFavorites(memberId); // 찜 목록을 다시 불러옵니다
+                // UI에서 해당 항목을 제거합니다
+                document.querySelectorAll(`#favorite-${photoId}`).forEach(item => item.remove());
             })
             .catch(error => console.error('Error:', error));
     }
