@@ -1,6 +1,5 @@
 package webLogin.member;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +12,7 @@ public class Favorite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @ManyToOne
     @JoinColumn(name = "member_id")
     private Member member;
@@ -20,9 +20,13 @@ public class Favorite {
     @Column(name = "photo_id")
     private Long photoId;
 
-    public Favorite(Member member, Long photoId) {
+    @Column(name = "gender")  // 추가
+    private String gender;
+
+    public Favorite(Member member, Long photoId, String gender) {  // 수정
         this.member = member;
         this.photoId = photoId;
+        this.gender = gender;  // 추가
     }
 
     // Getters and Setters (if not using Lombok)
@@ -49,6 +53,12 @@ public class Favorite {
     public void setPhotoId(Long photoId) {
         this.photoId = photoId;
     }
+
+    public String getGender() {  // 추가
+        return gender;
+    }
+
+    public void setGender(String gender) {  // 추가
+        this.gender = gender;
+    }
 }
-
-
