@@ -33,7 +33,7 @@
 
         .header .container {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             padding: 0 2rem;
         }
@@ -42,6 +42,15 @@
             font-size: 2rem;
             font-weight: bold;
             letter-spacing: 1px;
+        }
+
+        .navbar-toggler {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         .header nav ul {
@@ -63,6 +72,34 @@
 
         .header nav ul li a:hover {
             color: #4f8cff;
+        }
+
+        /* 슬라이드 메뉴 스타일 */
+        .slide-menu {
+            display: none;
+            background-color: #1a1a2e;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .slide-menu a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            margin: 1rem 0;
+        }
+
+        .slide-menu.show {
+            display: flex;
+            transform: translateY(0);
         }
 
         /* 섹션 스타일 */
@@ -163,6 +200,18 @@
             .gallery {
                 grid-template-columns: repeat(3, 1fr);
             }
+
+            .navbar-toggler {
+                display: block;
+            }
+
+            .header nav ul {
+                display: none;
+            }
+
+            .menu {
+                display: none;
+            }
         }
 
         @media (max-width: 768px) {
@@ -228,6 +277,9 @@
 <header class="header">
     <div class="container">
         <h1 onclick="location.href='/zara'">ZARA LookBook</h1>
+        <button class="navbar-toggler" id="menuButton">
+            &#9776;
+        </button>
     </div>
 </header>
 
@@ -243,6 +295,18 @@
 
 </nav>
 
+<div class="slide-menu" id="slideMenu">
+    <th:block th:if="${username}">
+        <span class="nav-link"><a href="/myPage">Welcome, <span th:text="${username}"></span></a></span>
+    </th:block>
+    <a href="#brand-video" onclick="showSection('brand-video')">Brand Video</a>
+    <a href="#men" onclick="showSection('men')">Men</a>
+    <a href="#women" onclick="showSection('women')">Women</a>
+    <a class="nav-link" href="/logout">Logout</a>
+
+
+    <button class="btn btn-secondary mt-3" id="closeButton">Close</button>
+</div>
 <!-- 브랜드 룩북 동영상 섹션 -->
 <section id="brand-video" class="section">
     <div class="brand-video">
@@ -736,8 +800,6 @@
     </div>
 </footer>
 <script>
-    let currentUser = null;
-
     function showSection(sectionId) {
         document.querySelectorAll('.section').forEach(section => {
             section.style.display = 'none';
@@ -762,38 +824,29 @@
             .catch(error => console.error('Error:', error));
     }
 
-    function loadFavorites(memberId) {
-        fetch(`/favorites/list/${memberId}`)
-            .then(response => response.json())
-            .then(data => {
-                const favoritePhotos = document.getElementById('favorite-photos');
-                if (favoritePhotos) {
-                    favoritePhotos.innerHTML = '';
-                    data.forEach(photo => {
-                        const img = document.createElement('img');
-                        img.src = `/assets/img/zaraImg/${photo.gender === 'men' ? 'zaraSubImgMen' : 'zaraSubImgWomen'}/${photo.photoId}.png`;
-                        img.alt = `Favorite photo ${photo.photoId}`;
-                        favoritePhotos.appendChild(img);
-                    });
-                }
-            })
-            .catch(error => console.error('Error:', error));
-    }
+    document.querySelector('#menuButton').addEventListener('click', function() {
+        document.getElementById('slideMenu').classList.toggle('show');
+        document.getElementById('menuButton').style.display = 'none';
+    });
 
-    function getCurrentUser() {
-        fetch('/current-user')
-            .then(response => response.json())
-            .then(user => {
-                currentUser = user;
-                console.log('Current user:', currentUser);
-                if (user && user.id) {
-                    loadFavorites(user.id);
-                }
-            })
-            .catch(error => console.error('Error:', error));
-    }
+    document.querySelector('#closeButton').addEventListener('click', function() {
+        document.getElementById('slideMenu').classList.toggle('show');
+        document.getElementById('menuButton').style.display = 'block';
+    });
 
-    document.addEventListener('DOMContentLoaded', getCurrentUser);
+    document.querySelectorAll('.nav-link, .slide-menu a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                document.querySelector(href).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                document.getElementById('slideMenu').classList.remove('show');
+                document.getElementById('menuButton').style.display = 'block';
+            }
+        });
+    });
 </script>
 
 </body>
