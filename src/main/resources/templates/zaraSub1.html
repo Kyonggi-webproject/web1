@@ -17,7 +17,7 @@
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f4f4f4;
+            background-color: #fff;
         }
 
         /* 헤더 스타일 */
@@ -42,6 +42,7 @@
             font-size: 2rem;
             font-weight: bold;
             letter-spacing: 1px;
+            cursor: pointer;
         }
 
         .navbar-toggler {
@@ -91,7 +92,7 @@
         }
 
         .slide-menu a {
-            color: white;
+            color: #e6e6e6;
             font-size: 1.5rem;
             text-decoration: none;
             margin: 1rem 0;
@@ -140,8 +141,9 @@
         /* 갤러리 스타일 */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
+            justify-content: center;
         }
 
         .gallery-item {
@@ -184,8 +186,8 @@
         }
 
         .favorite-btn {
-            background: midnightblue;
-            color: white;
+            background: #fff;
+            color: #1a1a2e;
             border: none;
             padding: 10px 15px;
             border-radius: 5px;
@@ -198,7 +200,7 @@
         /* 반응형 스타일 */
         @media (max-width: 1024px) {
             .gallery {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .navbar-toggler {
@@ -216,17 +218,13 @@
 
         @media (max-width: 768px) {
             .gallery {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(1, 1fr);
             }
         }
 
         @media (max-width: 480px) {
             .gallery {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .gallery-item:first-child {
-                grid-column: 1 / -1;
+                grid-template-columns: 1fr;
             }
 
             .gallery-item img {
@@ -271,6 +269,30 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        /* 탭 스타일 */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .tabs button {
+            background: none;
+            border: none;
+            color: #1a1a2e;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0 1rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        .tabs button.active, .tabs button:hover {
+            color: #4f8cff;
+            border-bottom: 2px solid #4f8cff;
+        }
     </style>
 </head>
 <body>
@@ -287,7 +309,6 @@
     <a href="#brand-video" onclick="showSection('brand-video')">Brand Video</a>
     <a href="#men" onclick="showSection('men')">Men</a>
     <a href="#women" onclick="showSection('women')">Women</a>
-
     <th:block th:if="${username}">
         <li><a href="/myPage">Welcome, <span th:text="${username}"></span></a></li>
         <li><a href="/logout">Logout</a></li>
@@ -302,7 +323,6 @@
     <a href="#men" onclick="showSection('men')">Men</a>
     <a href="#women" onclick="showSection('women')">Women</a>
     <a class="nav-link" href="/logout">Logout</a>
-
     <button class="btn btn-secondary mt-3" id="closeButton">Close</button>
 </div>
 
@@ -315,474 +335,397 @@
 
 <section id="men" class="section" style="display:none;">
     <h2>Men's Collection</h2>
-    <div class="gallery">
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/1.png" alt="Men Look 1">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 1, 'men', 'ZARA')">찜하기</button>
+    <div class="tabs">
+        <button onclick="showTab('men-ss', this)" class="active">S/S</button>
+        <button onclick="showTab('men-fw', this)">F/W</button>
+        <button onclick="showTab('men-best', this)">Best Items</button>
+    </div>
+    <div id="men-ss" class="tab-content">
+        <div class="gallery">
+            <!-- 현재 구현된 사진을 여기에 추가 -->
+            <!-- 예시 -->
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/1.png" alt="Men Look 1">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(1, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
             </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/2.png" alt="Men Look 2">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(2, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/3.png" alt="Men Look 3">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(3, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/4.png" alt="Men Look 4">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(4, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/5.png" alt="Men Look 5">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(5, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/6.png" alt="Men Look 6">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(6, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/7.png" alt="Men Look 7">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(7, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/8.png" alt="Men Look 8">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(8, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/9.png" alt="Men Look 9">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(9, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/10.png" alt="Men Look 10">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(10, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/11.png" alt="Men Look 11">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(11, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/12.png" alt="Men Look 12">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(12, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/13.png" alt="Men Look 13">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(13, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/15.png" alt="Men Look 15">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(15, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/16.png" alt="Men Look 16">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(16, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/17.png" alt="Men Look 17">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(17, 'men', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+
+            <!-- 추가 사진들... -->
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/2.png" alt="Men Look 2">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 2, 'men', 'ZARA')">찜하기</button>
+    </div>
+    <div id="men-fw" class="tab-content" style="display:none;">
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/2.png" alt="Men Look 2">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(2, 'men', 'zara', 'fw')">찜하기</button>
+                </div>
             </div>
+            <!-- F/W 사진들 추가 -->
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/3.png" alt="Men Look 3">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 3, 'men', 'ZARA')">찜하기</button>
+    </div>
+    <div id="men-best" class="tab-content" style="display:none;">
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgMen/3.png" alt="Men Look 3">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(3, 'men', 'zara', 'best')">찜하기</button>
+                </div>
             </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/4.png" alt="Men Look 4">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 4, 'men', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/5.png" alt="Men Look 5">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 5, 'men', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/6.png" alt="Men Look 6">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 6, 'men', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/7.png" alt="Men Look 7">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 7, 'men', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/8.png" alt="Men Look 8">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 8, 'men', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/9.png" alt="Men Look 9">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 9, 'men', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/10.png" alt="Men Look 10">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 10, 'men', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/11.png" alt="Men Look 11">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 11, 'men', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/12.png" alt="Men Look 12">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 12, 'men', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/13.png" alt="Men Look 13">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 13, 'men', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/15.png" alt="Men Look 15">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 15, 'men', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/16.png" alt="Men Look 16">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 16, 'men', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgMen/17.png" alt="Men Look 17">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 17, 'men', 'ZARA')">찜하기</button>
-            </div>
+            <!-- Best Items 사진들 추가 -->
         </div>
     </div>
 </section>
 
 <section id="women" class="section" style="display:none;">
     <h2>Women's Collection</h2>
-    <div class="gallery">
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/19.png" alt="Women Look 19">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 19, 'women', 'ZARA')">찜하기</button>
+    <div class="tabs">
+        <button onclick="showTab('women-ss', this)" class="active">S/S</button>
+        <button onclick="showTab('women-fw', this)">F/W</button>
+        <button onclick="showTab('women-best', this)">Best Items</button>
+    </div>
+    <div id="women-ss" class="tab-content">
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/19.png" alt="Women Look 19">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(19, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
             </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/20.png" alt="Women Look 20">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(20, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/21.png" alt="Women Look 21">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(21, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/22.png" alt="Women Look 22">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(22, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/24.png" alt="Women Look 24">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(24, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/25.png" alt="Women Look 25">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(25, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/26.png" alt="Women Look 26">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(26, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/27.png" alt="Women Look 27">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(27, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/28.png" alt="Women Look 28">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(28, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/29.png" alt="Women Look 29">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(29, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/31.png" alt="Women Look 31">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(31, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/32.png" alt="Women Look 32">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(32, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/33.png" alt="Women Look 33">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(33, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/34.png" alt="Women Look 34">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(34, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/35.png" alt="Women Look 35">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(35, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/36.png" alt="Women Look 36">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(36, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/37.png" alt="Women Look 37">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(37, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/38.png" alt="Women Look 38">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(38, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/39.png" alt="Women Look 39">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(39, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/40.png" alt="Women Look 40">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(40, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/41.png" alt="Women Look 41">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(41, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/42.png" alt="Women Look 42">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(42, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/43.png" alt="Women Look 43">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(43, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/44.png" alt="Women Look 44">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(44, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/45.png" alt="Women Look 45">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(45, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/46.png" alt="Women Look 46">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(46, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/47.png" alt="Women Look 47">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(47, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/48.png" alt="Women Look 48">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(48, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/49.png" alt="Women Look 49">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(49, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/50.png" alt="Women Look 50">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(50, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/51.png" alt="Women Look 51">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(51, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/52.png" alt="Women Look 52">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(52, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/53.png" alt="Women Look 53">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(53, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/54.png" alt="Women Look 54">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(54, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/55.png" alt="Women Look 55">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(55, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/56.png" alt="Women Look 56">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(56, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/57.png" alt="Women Look 57">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(57, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/58.png" alt="Women Look 58">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(58, 'women', 'zara', 'ss')">찜하기</button>
+                </div>
+            </div>
+
+            <!-- 현재 구현된 사진을 여기에 추가 -->
+            <!-- 예시 -->
+
+            <!-- 추가 사진들... -->
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/20.png" alt="Women Look 20">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 20, 'women', 'ZARA')">찜하기</button>
-            </div>
+    </div>
+    <div id="women-fw" class="tab-content" style="display:none;">
+        <div class="gallery">
+
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/21.png" alt="Women Look 21">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 21, 'women', 'ZARA')">찜하기</button>
+    </div>
+    <div id="women-best" class="tab-content" style="display:none;">
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/assets/img/zaraImg/zaraSubImgWomen/19.png" alt="Women Look 4">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(19, 'women', 'zara', 'best')">찜하기</button>
+                </div>
             </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/22.png" alt="Women Look 22">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 22, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/24.png" alt="Women Look 24">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 24, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/25.png" alt="Women Look 25">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 25, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/26.png" alt="Women Look 26">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 26, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/27.png" alt="Women Look 27">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 27, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/28.png" alt="Women Look 28">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 28, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/29.png" alt="Women Look 29">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 29, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/31.png" alt="Women Look 31">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 31, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/32.png" alt="Women Look 32">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 32, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/33.png" alt="Women Look 33">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 33, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/34.png" alt="Women Look 34">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 34, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/35.png" alt="Women Look 35">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 35, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/36.png" alt="Women Look 36">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 36, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/37.png" alt="Women Look 37">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 37, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/38.png" alt="Women Look 38">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 38, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/39.png" alt="Women Look 39">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 39, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/40.png" alt="Women Look 40">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 40, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/41.png" alt="Women Look 41">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 41, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/42.png" alt="Women Look 42">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 42, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/43.png" alt="Women Look 43">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 43, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/44.png" alt="Women Look 44">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 44, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/45.png" alt="Women Look 45">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 45, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/46.png" alt="Women Look 46">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 46, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/47.png" alt="Women Look 47">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 47, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/48.png" alt="Women Look 48">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 48, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/49.png" alt="Women Look 49">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 49, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/50.png" alt="Women Look 50">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 50, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/51.png" alt="Women Look 51">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 51, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/52.png" alt="Women Look 52">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 52, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/53.png" alt="Women Look 53">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 53, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/54.png" alt="Women Look 54">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 54, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/55.png" alt="Women Look 55">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 55, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/56.png" alt="Women Look 56">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 56, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/57.png" alt="Women Look 57">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 57, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/58.png" alt="Women Look 58">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 58, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/59.png" alt="Women Look 59">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 59, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/60.png" alt="Women Look 60">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 60, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/61.png" alt="Women Look 61">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 61, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/62.png" alt="Women Look 62">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 62, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/63.png" alt="Women Look 63">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 63, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/65.png" alt="Women Look 65">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 65, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/66.png" alt="Women Look 66">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 66, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/67.png" alt="Women Look 67">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 67, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/68.png" alt="Women Look 68">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 68, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/69.png" alt="Women Look 69">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 69, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/70.png" alt="Women Look 70">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 70, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/71.png" alt="Women Look 71">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 71, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/72.png" alt="Women Look 72">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 72, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/73.png" alt="Women Look 73">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 73, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/74.png" alt="Women Look 74">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 74, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/75.png" alt="Women Look 75">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 75, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/76.png" alt="Women Look 76">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 76, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/77.png" alt="Women Look 77">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 77, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/78.png" alt="Women Look 78">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 78, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/79.png" alt="Women Look 79">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 79, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/80.png" alt="Women Look 80">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 80, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/81.png" alt="Women Look 81">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 81, 'women', 'ZARA')">찜하기</button>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="/assets/img/zaraImg/zaraSubImgWomen/82.png" alt="Women Look 82">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 82, 'women', 'ZARA')">찜하기</button>
-            </div>
+            <!-- Best Items 사진들 추가 -->
         </div>
     </div>
 </section>
@@ -794,6 +737,8 @@
 </footer>
 
 <script>
+    let currentUser = null;
+
     function showSection(sectionId) {
         document.querySelectorAll('.section').forEach(section => {
             section.style.display = 'none';
@@ -801,8 +746,9 @@
         document.getElementById(sectionId).style.display = 'block';
     }
 
-    function addFavorite(memberId, photoId, gender, brand) {
-        fetch(`/favorites/add?memberId=${memberId}&photoId=${photoId}&gender=${gender}&brand=${brand}`, {
+    function addFavorite(photoId, gender, brand, tab) {
+        const memberId = currentUser.id;
+        fetch(`/favorites/add?memberId=${memberId}&photoId=${photoId}&gender=${gender}&brand=${brand}&tab=${tab}`, {
             method: 'POST'
         })
             .then(response => {
@@ -814,6 +760,15 @@
             .then(data => {
                 alert(data);
                 console.log('Favorite added successfully:', data);
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    function getCurrentUser() {
+        fetch('/current-user')
+            .then(response => response.json())
+            .then(user => {
+                currentUser = user;
             })
             .catch(error => console.error('Error:', error));
     }
@@ -841,6 +796,20 @@
             }
         });
     });
+
+    function showTab(tabId, element) {
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.style.display = 'none';
+        });
+        document.querySelectorAll('.tabs button').forEach(button => {
+            button.classList.remove('active');
+        });
+        document.getElementById(tabId).style.display = 'block';
+        element.classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', getCurrentUser);
 </script>
+
 </body>
 </html>

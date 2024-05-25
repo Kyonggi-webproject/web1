@@ -17,9 +17,9 @@ public class FavoriteService {
     @Autowired
     private MemberRepository memberRepository;
 
-    public void addFavorite(Long memberId, Long photoId, String gender, String brand) {
+    public void addFavorite(Long memberId, Long photoId, String gender, String brand, String tab) {
         Member member = memberRepository.findById(memberId).orElseThrow(() -> new IllegalArgumentException("Invalid member Id: " + memberId));
-        Favorite favorite = new Favorite(member, photoId, gender, brand); // brand 추가
+        Favorite favorite = new Favorite(member, photoId, gender, brand, tab);
         favoriteRepository.save(favorite);
     }
 

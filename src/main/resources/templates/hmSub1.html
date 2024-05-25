@@ -1,553 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H&M LookBook</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <style>
-        /* 기본 스타일 초기화 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H&M LookBook</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    /* 기본 스타일 초기화 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-        }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
 
-        /* 헤더 스타일 */
-        .header {
-            background: #e60012;
-            color: #fff;
-            padding: 1rem 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    /* 헤더 스타일 */
+    .header {
+      background: #e60012;
+      color: #fff;
+      padding: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
 
-        .header h1 {
-            font-size: 2rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
+    .header h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
 
-        .navbar-toggler {
-            display: none;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+    .navbar-toggler {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
 
-        .header nav ul {
-            list-style: none;
-            display: flex;
-        }
+    .header nav ul {
+      list-style: none;
+      display: flex;
+    }
 
-        .header nav ul li {
-            margin-left: 2rem;
-        }
+    .header nav ul li {
+      margin-left: 2rem;
+    }
 
-        .header nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s ease;
-        }
+    .header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease;
+    }
 
-        .header nav ul li a:hover {
-            color: #ffe0e6;
-        }
+    .header nav ul li a:hover {
+      color: #ffe0e6;
+    }
 
-        /* 슬라이드 메뉴 스타일 */
-        .slide-menu {
-            display: none;
-            background-color: #e60012;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-        }
+    /* 슬라이드 메뉴 스타일 */
+    .slide-menu {
+      display: none;
+      background-color: #e60012;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
 
-        .slide-menu a {
-            color: #fff;
-            font-size: 1.5rem;
-            text-decoration: none;
-            margin: 1rem 0;
-        }
+    .slide-menu a {
+      color: #fff;
+      font-size: 1.5rem;
+      text-decoration: none;
+      margin: 1rem 0;
+    }
 
-        .slide-menu.show {
-            display: flex;
-            transform: translateY(0);
-        }
+    .slide-menu.show {
+      display: flex;
+      transform: translateY(0);
+    }
 
-        /* 섹션 스타일 */
-        .section {
-            padding: 3rem 1rem;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
+    /* 섹션 스타일 */
+    .section {
+      padding: 3rem 1rem;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
 
-        .section h2 {
-            font-size: 2.5rem;
-            color: #e60012;
-            margin-bottom: 2rem;
-        }
+    .section h2 {
+      font-size: 2.5rem;
+      color: #e60012;
+      margin-bottom: 2rem;
+    }
 
-        .menu {
-            display: flex;
-            justify-content: center;
-            background: #e60012;
-            padding: 1rem 0;
-        }
+    .menu {
+      display: flex;
+      justify-content: center;
+      background: #e60012;
+      padding: 1rem 0;
+    }
 
-        .menu a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 0 1.5rem;
-            padding-bottom: 0.5rem;
-            transition: color 0.3s ease, border-bottom 0.3s ease;
-        }
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 0 1.5rem;
+      padding-bottom: 0.5rem;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+    }
 
-        .menu a:hover {
-            color: #ffe0e6;
-            border-bottom: 2px solid #ffe0e6;
-        }
+    .menu a:hover {
+      color: #ffe0e6;
+      border-bottom: 2px solid #ffe0e6;
+    }
 
-        /* 갤러리 스타일 */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
+    /* 갤러리 스타일 */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      justify-content: center;
+    }
 
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            height: 300px;
-            transition: transform 0.3s ease;
-        }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      height: 300px;
+      transition: transform 0.3s ease;
+    }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
 
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
 
-        .gallery-item-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 0.5rem;
-            text-align: center;
-            font-size: 0.9rem;
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
+    .gallery-item-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 0.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
 
-        .gallery-item:hover .gallery-item-info {
-            opacity: 1;
-            transform: translateY(-20px);
-        }
+    .gallery-item:hover .gallery-item-info {
+      opacity: 1;
+      transform: translateY(-20px);
+    }
 
-        .favorite-btn {
-            background: #fff;
-            color: #e60012;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    .favorite-btn {
+      background: #fff;
+      color: #e60012;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-        /* 반응형 스타일 */
-        @media (max-width: 1024px) {
-            .gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
+    /* 반응형 스타일 */
+    @media (max-width: 1024px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
-            .navbar-toggler {
-                display: block;
-            }
+      .navbar-toggler {
+        display: block;
+      }
 
-            .header nav ul {
-                display: none;
-            }
+      .header nav ul {
+        display: none;
+      }
 
-            .menu {
-                display: none;
-            }
-        }
+      .menu {
+        display: none;
+      }
+    }
 
-        @media (max-width: 768px) {
-            .gallery {
-                grid-template-columns: repeat(1, 1fr);
-            }
-        }
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
 
-        @media (max-width: 480px) {
-            .gallery {
-                grid-template-columns: 1fr;
-            }
+    @media (max-width: 480px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
 
-            .gallery-item img {
-                height: auto;
-            }
-        }
+      .gallery-item img {
+        height: auto;
+      }
+    }
 
-        /* footer 스타일 */
-        .footer {
-            background: #e60012;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 3rem;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
-        }
+    /* footer 스타일 */
+    .footer {
+      background: #e60012;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 3rem;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+    }
 
-        .footer p {
-            margin: 0;
-            font-size: 0.9rem;
-        }
+    .footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
 
-        /* 브랜드 룩북 동영상 스타일 */
-        .brand-video {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background: #000;
-        }
+    /* 브랜드 룩북 동영상 스타일 */
+    .brand-video {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      background: #000;
+    }
 
-        .brand-video iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+    .brand-video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    </style>
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* 탭 스타일 */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .tabs button {
+      background: none;
+      border: none;
+      color: #e60012;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 0 1rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+    }
+
+    .tabs button.active, .tabs button:hover {
+      color: #ffe0e6;
+      border-bottom: 2px solid #ffe0e6;
+    }
+  </style>
 </head>
 <body>
 <header class="header">
-    <div class="container">
-        <h1 onclick="location.href='/hm'">H&M LookBook</h1>
-        <button class="navbar-toggler" id="menuButton">
-            &#9776;
-        </button>
-    </div>
+  <div class="container">
+    <h1 onclick="location.href='/hm'">H&M LookBook</h1>
+    <button class="navbar-toggler" id="menuButton">
+      &#9776;
+    </button>
+  </div>
 </header>
 
 <nav class="menu">
-    <a href="#brand-video" onclick="showSection('brand-video')">Brand Video</a>
-    <a href="#men" onclick="showSection('men')">Men</a>
-    <a href="#women" onclick="showSection('women')">Women</a>
-    <th:block th:if="${username}">
-        <li><a href="/myPage">Welcome, <span th:text="${username}"></span></a></li>
-        <li><a href="/logout">Logout</a></li>
-    </th:block>
+  <a href="#brand-video" onclick="showSection('brand-video')">Brand Video</a>
+  <a href="#men" onclick="showSection('men')">Men</a>
+  <a href="#women" onclick="showSection('women')">Women</a>
+  <th:block th:if="${username}">
+    <li><a href="/myPage">Welcome, <span th:text="${username}"></span></a></li>
+    <li><a href="/logout">Logout</a></li>
+  </th:block>
 </nav>
 
 <div class="slide-menu" id="slideMenu">
-    <th:block th:if="${username}">
-        <span class="nav-link"><a href="/myPage">Welcome, <span th:text="${username}"></span></a></span>
-    </th:block>
-    <a href="#brand-video" onclick="showSection('brand-video')">Brand Video</a>
-    <a href="#men" onclick="showSection('men')">Men</a>
-    <a href="#women" onclick="showSection('women')">Women</a>
-    <a class="nav-link" href="/logout">Logout</a>
-    <button class="btn btn-secondary mt-3" id="closeButton">Close</button>
+  <th:block th:if="${username}">
+    <span class="nav-link"><a href="/myPage">Welcome, <span th:text="${username}"></span></a></span>
+  </th:block>
+  <a href="#brand-video" onclick="showSection('brand-video')">Brand Video</a>
+  <a href="#men" onclick="showSection('men')">Men</a>
+  <a href="#women" onclick="showSection('women')">Women</a>
+  <a class="nav-link" href="/logout">Logout</a>
+  <button class="btn btn-secondary mt-3" id="closeButton">Close</button>
 </div>
+
 <!-- 브랜드 룩북 동영상 섹션 -->
 <section id="brand-video" class="section">
-    <div class="brand-video">
-        <iframe src="https://www.youtube.com/embed/Qx7DWuO-uM0" frameborder="0" allowfullscreen></iframe>
-    </div>
+  <div class="brand-video">
+    <iframe src="https://www.youtube.com/embed/Qx7DWuO-uM0" frameborder="0" allowfullscreen></iframe>
+  </div>
 </section>
 
 <section id="men" class="section" style="display:none;">
-    <h2>Men's Collection</h2>
+  <h2>Men's Collection</h2>
+  <div class="tabs">
+    <button onclick="showTab('men-ss', this)" class="active">S/S</button>
+    <button onclick="showTab('men-fw', this)">F/W</button>
+    <button onclick="showTab('men-best', this)">Best Items</button>
+  </div>
+  <div id="men-ss" class="tab-content">
     <div class="gallery">
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/1.png" alt="Men Look 1">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 1, 'men', 'hm')">찜하기</button>
-            </div>
+      <!-- 현재 구현된 사진을 여기에 추가 -->
+      <!-- 예시 -->
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/1.png" alt="Men Look 1">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(1, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/2.png" alt="Men Look 2">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 2, 'men', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/2.png" alt="Men Look 2">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(2, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/3.png" alt="Men Look 3">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 3, 'men', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/3.png" alt="Men Look 3">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(3, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/4.png" alt="Men Look 4">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 4, 'men', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/4.png" alt="Men Look 4">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(4, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/5.png" alt="Men Look 5">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 5, 'men', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/5.png" alt="Men Look 5">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(5, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/6.png" alt="Men Look 6">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 6, 'men', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/6.png" alt="Men Look 6">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(6, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/7.png" alt="Men Look 7">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 7, 'men', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/7.png" alt="Men Look 7">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(7, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/8.png" alt="Men Look 8">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 8, 'men', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/8.png" alt="Men Look 8">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(8, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/9.png" alt="Men Look 9">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 9, 'men', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/9.png" alt="Men Look 9">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(9, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/10.png" alt="Men Look 10">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 10, 'men', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/10.png" alt="Men Look 10">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(10, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/11.png" alt="Men Look 11">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 11, 'men', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/11.png" alt="Men Look 11">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(11, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/12.png" alt="Men Look 12">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 12, 'men', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/12.png" alt="Men Look 12">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(12, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/13.png" alt="Men Look 13">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 13, 'men', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/13.png" alt="Men Look 13">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(13, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/14.png" alt="Men Look 14">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 14, 'men', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/14.png" alt="Men Look 14">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(14, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgMen/15.png" alt="Men Look 15">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 15, 'men', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/15.png" alt="Men Look 15">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(15, 'men', 'hm', 'ss')">찜하기</button>
         </div>
-        <!-- Add more gallery items as needed -->
+      </div>
+
+      <!-- 추가 사진들... -->
     </div>
+  </div>
+  <div id="men-fw" class="tab-content" style="display:none;">
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/3.png" alt="Men Look 3">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(3, 'men', 'hm', 'fw')">찜하기</button>
+        </div>
+      </div>
+      <!-- F/W 사진들 추가 -->
+    </div>
+  </div>
+  <div id="men-best" class="tab-content" style="display:none;">
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgMen/4.png" alt="Men Look 4">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(4, 'men', 'hm', 'best')">찜하기</button>
+        </div>
+      </div>
+      <!-- Best Items 사진들 추가 -->
+    </div>
+  </div>
 </section>
 
 <section id="women" class="section" style="display:none;">
-    <h2>Women's Collection</h2>
+  <h2>Women's Collection</h2>
+  <div class="tabs">
+    <button onclick="showTab('women-ss', this)" class="active">S/S</button>
+    <button onclick="showTab('women-fw', this)">F/W</button>
+    <button onclick="showTab('women-best', this)">Best Items</button>
+  </div>
+  <div id="women-ss" class="tab-content">
     <div class="gallery">
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgWomen/16.png" alt="Women Look 1">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 16, 'women', 'hm')">찜하기</button>
-            </div>
+      <!-- 현재 구현된 사진을 여기에 추가 -->
+      <!-- 예시 -->
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/16.png" alt="Women Look 1">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(16, 'women', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgWomen/17.png" alt="Women Look 2">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 17, 'women', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/17.png" alt="Women Look 2">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(17, 'women', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgWomen/18.png" alt="Women Look 3">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 18, 'women', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/18.png" alt="Women Look 3">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(18, 'women', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgWomen/19.png" alt="Women Look 19">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 19, 'women', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/19.png" alt="Women Look 4">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(19, 'women', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgWomen/20.png" alt="Women Look 20">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 20, 'women', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/20.png" alt="Women Look 5">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(20, 'women', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgWomen/21.png" alt="Women Look 21">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 21, 'women', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/21.png" alt="Women Look 6">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(21, 'women', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgWomen/22.png" alt="Women Look 22">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 22, 'women', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/22.png" alt="Women Look 7">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(22, 'women', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgWomen/23.png" alt="Women Look 23">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 23, 'women', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/23.png" alt="Women Look 8">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(23, 'women', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgWomen/25.png" alt="Women Look 25">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 25, 'women', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/24.png" alt="Women Look 9">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(24, 'women', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgWomen/26.png" alt="Women Look 26">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 26, 'women', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/25.png" alt="Women Look 10">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(25, 'women', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgWomen/27.png" alt="Women Look 27">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 27, 'women', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/26.png" alt="Women Look 11">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(26, 'women', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgWomen/28.png" alt="Women Look 28">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 28, 'women', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/27.png" alt="Women Look 12">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(27, 'women', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgWomen/29.png" alt="Women Look 29">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 29, 'women', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/28.png" alt="Women Look 13">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(28, 'women', 'hm', 'ss')">찜하기</button>
         </div>
-        <div class="gallery-item">
-            <img src="/assets/img/hmImg/hmSubImgWomen/30.png" alt="Women Look 30">
-            <div class="gallery-item-info">
-                <button class="favorite-btn" onclick="addFavorite(1, 30, 'women', 'hm')">찜하기</button>
-            </div>
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/29.png" alt="Women Look 14">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(29, 'women', 'hm', 'ss')">찜하기</button>
         </div>
-        <!-- Add more gallery items as needed -->
+      </div>
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/30.png" alt="Women Look 15">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(30, 'women', 'hm', 'ss')">찜하기</button>
+        </div>
+      </div>
+
+      <!-- 추가 사진들... -->
     </div>
+  </div>
+  <div id="women-fw" class="tab-content" style="display:none;">
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/18.png" alt="Women Look 3">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(18, 'women', 'hm', 'fw')">찜하기</button>
+        </div>
+      </div>
+      <!-- F/W 사진들 추가 -->
+    </div>
+  </div>
+  <div id="women-best" class="tab-content" style="display:none;">
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="/assets/img/hmImg/hmSubImgWomen/19.png" alt="Women Look 4">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(19, 'women', 'hm', 'best')">찜하기</button>
+        </div>
+      </div>
+      <!-- Best Items 사진들 추가 -->
+    </div>
+  </div>
 </section>
 
 <footer id="contact" class="footer">
-    <div class="container">
-        <p>&copy; 2024 H&M. All Rights Reserved.</p>
-    </div>
+  <div class="container">
+    <p>&copy; 2024 H&M. All Rights Reserved.</p>
+  </div>
 </footer>
-<script>
-    function showSection(sectionId) {
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.display = 'none';
-        });
-        document.getElementById(sectionId).style.display = 'block';
-    }
 
-    function addFavorite(memberId, photoId, gender, brand) {
-        fetch(`/favorites/add?memberId=${memberId}&photoId=${photoId}&gender=${gender}&brand=${brand}`, {
-            method: 'POST'
-        })
+<script>
+  let currentUser = null;
+
+  function showSection(sectionId) {
+    document.querySelectorAll('.section').forEach(section => {
+      section.style.display = 'none';
+    });
+    document.getElementById(sectionId).style.display = 'block';
+  }
+
+  function addFavorite(photoId, gender, brand, tab) {
+    const memberId = currentUser.id;
+    fetch(`/favorites/add?memberId=${memberId}&photoId=${photoId}&gender=${gender}&brand=${brand}&tab=${tab}`, {
+      method: 'POST'
+    })
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.text();
+              if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+              }
+              return response.text();
             })
             .then(data => {
-                alert(data);
-                console.log('Favorite added successfully:', data);
+              alert(data);
+              console.log('Favorite added successfully:', data);
             })
             .catch(error => console.error('Error:', error));
-    }
+  }
 
-    document.querySelector('#menuButton').addEventListener('click', function() {
-        document.getElementById('slideMenu').classList.toggle('show');
-        document.getElementById('menuButton').style.display = 'none';
-    });
+  function getCurrentUser() {
+    fetch('/current-user')
+            .then(response => response.json())
+            .then(user => {
+              currentUser = user;
+            })
+            .catch(error => console.error('Error:', error));
+  }
 
-    document.querySelector('#closeButton').addEventListener('click', function() {
-        document.getElementById('slideMenu').classList.toggle('show');
-        document.getElementById('menuButton').style.display = 'block';
-    });
+  document.querySelector('#menuButton').addEventListener('click', function() {
+    document.getElementById('slideMenu').classList.toggle('show');
+    document.getElementById('menuButton').style.display = 'none';
+  });
 
-    document.querySelectorAll('.nav-link, .slide-menu a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href.startsWith('#')) {
-                e.preventDefault();
-                document.querySelector(href).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                document.getElementById('slideMenu').classList.remove('show');
-                document.getElementById('menuButton').style.display = 'block';
-            }
+  document.querySelector('#closeButton').addEventListener('click', function() {
+    document.getElementById('slideMenu').classList.toggle('show');
+    document.getElementById('menuButton').style.display = 'block';
+  });
+
+  document.querySelectorAll('.nav-link, .slide-menu a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        document.querySelector(href).scrollIntoView({
+          behavior: 'smooth'
         });
+        document.getElementById('slideMenu').classList.remove('show');
+        document.getElementById('menuButton').style.display = 'block';
+      }
     });
+  });
+
+  function showTab(tabId, element) {
+    document.querySelectorAll('.tab-content').forEach(tab => {
+      tab.style.display = 'none';
+    });
+    document.querySelectorAll('.tabs button').forEach(button => {
+      button.classList.remove('active');
+    });
+    document.getElementById(tabId).style.display = 'block';
+    element.classList.add('active');
+  }
+
+  document.addEventListener('DOMContentLoaded', getCurrentUser);
 </script>
 
 </body>

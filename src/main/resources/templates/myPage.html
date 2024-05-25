@@ -45,7 +45,6 @@
         }
         .container {
             margin-top: 100px;
-            display: flex;
         }
         .sidebar {
             width: 250px;
@@ -70,40 +69,13 @@
         }
         .content {
             margin-left: 270px;
-            width: calc(100% - 270px);
             padding: 20px;
         }
-        .tab-content img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 20px;
+        .tab-content {
+            display: none;
         }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .gallery-item {
-            position: relative;
-            width: 150px;
-            height: 150px;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        .delete-btn {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: red;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 2px 5px;
-            cursor: pointer;
+        .tab-content.active {
+            display: block;
         }
         .tab-buttons {
             display: flex;
@@ -114,6 +86,42 @@
             margin: 0 10px;
             padding: 10px 20px;
             font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .tab-buttons button.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .gallery-item {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .delete-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 2px 5px;
             cursor: pointer;
         }
     </style>
@@ -135,69 +143,182 @@
 </nav>
 
 <div class="sidebar">
-    <a href="#zara" onclick="showTab('zara')">ZARA</a>
-    <a href="#musinsa" onclick="showTab('musinsa')">무신사 스탠다드</a>
-    <a href="#cos" onclick="showTab('cos')">COS</a>
-    <a href="#hm" onclick="showTab('hm')">H&M</a>
-    <a href="#uniqlo" onclick="showTab('uniqlo')">UNIQLO</a>
-    <a href="#topten" onclick="showTab('topten')">탑텐</a>
+    <a href="#" onclick="showTab('zara')">ZARA</a>
+    <a href="#" onclick="showTab('musinsa')">무신사 스탠다드</a>
+    <a href="#" onclick="showTab('cos')">COS</a>
+    <a href="#" onclick="showTab('hm')">H&M</a>
+    <a href="#" onclick="showTab('uniqlo')">UNIQLO</a>
+    <a href="#" onclick="showTab('topten')">탑텐</a>
 </div>
 
 <div class="container">
     <div class="content">
-        <div id="zara" class="tab-content">
+        <div id="zara" class="tab-content active">
             <h2 onclick="location.href='/zara'">ZARA</h2>
             <div class="tab-buttons">
-                <button onclick="showGenderTab('zara-men')">남자</button>
-                <button onclick="showGenderTab('zara-women')">여자</button>
+                <button onclick="showGenderTab('zara-men', this)" class="active">남자</button>
+                <button onclick="showGenderTab('zara-women', this)">여자</button>
             </div>
-            <div id="zara-men" class="gallery"></div>
-            <div id="zara-women" class="gallery" style="display:none;"></div>
+            <div id="zara-men" class="gallery-tabs">
+                <div class="tab-buttons">
+                    <button onclick="showSubTab('zara-men-ss', this)" class="active">S/S</button>
+                    <button onclick="showSubTab('zara-men-fw', this)">F/W</button>
+                    <button onclick="showSubTab('zara-men-best', this)">Best Items</button>
+                </div>
+                <div id="zara-men-ss" class="gallery"></div>
+                <div id="zara-men-fw" class="gallery" style="display:none;"></div>
+                <div id="zara-men-best" class="gallery" style="display:none;"></div>
+            </div>
+            <div id="zara-women" class="gallery-tabs" style="display:none;">
+                <div class="tab-buttons">
+                    <button onclick="showSubTab('zara-women-ss', this)" class="active">S/S</button>
+                    <button onclick="showSubTab('zara-women-fw', this)">F/W</button>
+                    <button onclick="showSubTab('zara-women-best', this)">Best Items</button>
+                </div>
+                <div id="zara-women-ss" class="gallery"></div>
+                <div id="zara-women-fw" class="gallery" style="display:none;"></div>
+                <div id="zara-women-best" class="gallery" style="display:none;"></div>
+            </div>
         </div>
-        <div id="musinsa" class="tab-content" style="display:none;">
+        <!-- 무신사, COS, H&M, UNIQLO, 탑텐 섹션들도 동일한 방식으로 수정 -->
+        <!-- 무신사 섹션 예시 -->
+        <div id="musinsa" class="tab-content">
             <h2>무신사 스탠다드</h2>
             <div class="tab-buttons">
-                <button onclick="showGenderTab('musinsa-men')">남자</button>
-                <button onclick="showGenderTab('musinsa-women')">여자</button>
+                <button onclick="showGenderTab('musinsa-men', this)" class="active">남자</button>
+                <button onclick="showGenderTab('musinsa-women', this)">여자</button>
             </div>
-            <div id="musinsa-men" class="gallery"></div>
-            <div id="musinsa-women" class="gallery" style="display:none;"></div>
+            <div id="musinsa-men" class="gallery-tabs">
+                <div class="tab-buttons">
+                    <button onclick="showSubTab('musinsa-men-ss', this)" class="active">S/S</button>
+                    <button onclick="showSubTab('musinsa-men-fw', this)">F/W</button>
+                    <button onclick="showSubTab('musinsa-men-best', this)">Best Items</button>
+                </div>
+                <div id="musinsa-men-ss" class="gallery"></div>
+                <div id="musinsa-men-fw" class="gallery" style="display:none;"></div>
+                <div id="musinsa-men-best" class="gallery" style="display:none;"></div>
+            </div>
+            <div id="musinsa-women" class="gallery-tabs" style="display:none;">
+                <div class="tab-buttons">
+                    <button onclick="showSubTab('musinsa-women-ss', this)" class="active">S/S</button>
+                    <button onclick="showSubTab('musinsa-women-fw', this)">F/W</button>
+                    <button onclick="showSubTab('musinsa-women-best', this)">Best Items</button>
+                </div>
+                <div id="musinsa-women-ss" class="gallery"></div>
+                <div id="musinsa-women-fw" class="gallery" style="display:none;"></div>
+                <div id="musinsa-women-best" class="gallery" style="display:none;"></div>
+            </div>
         </div>
-        <div id="cos" class="tab-content" style="display:none;">
+        <!-- 다른 브랜드들도 동일하게 수정 -->
+        <!-- COS 섹션 예시 -->
+        <div id="cos" class="tab-content">
             <h2>COS</h2>
             <div class="tab-buttons">
-                <button onclick="showGenderTab('cos-men')">남자</button>
-                <button onclick="showGenderTab('cos-women')">여자</button>
+                <button onclick="showGenderTab('cos-men', this)" class="active">남자</button>
+                <button onclick="showGenderTab('cos-women', this)">여자</button>
             </div>
-            <div id="cos-men" class="gallery"></div>
-            <div id="cos-women" class="gallery" style="display:none;"></div>
+            <div id="cos-men" class="gallery-tabs">
+                <div class="tab-buttons">
+                    <button onclick="showSubTab('cos-men-ss', this)" class="active">S/S</button>
+                    <button onclick="showSubTab('cos-men-fw', this)">F/W</button>
+                    <button onclick="showSubTab('cos-men-best', this)">Best Items</button>
+                </div>
+                <div id="cos-men-ss" class="gallery"></div>
+                <div id="cos-men-fw" class="gallery" style="display:none;"></div>
+                <div id="cos-men-best" class="gallery" style="display:none;"></div>
+            </div>
+            <div id="cos-women" class="gallery-tabs" style="display:none;">
+                <div class="tab-buttons">
+                    <button onclick="showSubTab('cos-women-ss', this)" class="active">S/S</button>
+                    <button onclick="showSubTab('cos-women-fw', this)">F/W</button>
+                    <button onclick="showSubTab('cos-women-best', this)">Best Items</button>
+                </div>
+                <div id="cos-women-ss" class="gallery"></div>
+                <div id="cos-women-fw" class="gallery" style="display:none;"></div>
+                <div id="cos-women-best" class="gallery" style="display:none;"></div>
+            </div>
         </div>
-        <div id="hm" class="tab-content" style="display:none;">
+        <!-- 나머지 섹션들도 동일하게 설정 -->
+        <div id="hm" class="tab-content">
             <h2 onclick="location.href='/hm'">H&M</h2>
             <div class="tab-buttons">
-                <button onclick="showGenderTab('hm-men')">남자</button>
-                <button onclick="showGenderTab('hm-women')">여자</button>
+                <button onclick="showGenderTab('hm-men', this)" class="active">남자</button>
+                <button onclick="showGenderTab('hm-women', this)">여자</button>
             </div>
-            <div id="hm-men" class="gallery"></div>
-            <div id="hm-women" class="gallery" style="display:none;"></div>
+            <div id="hm-men" class="gallery-tabs">
+                <div class="tab-buttons">
+                    <button onclick="showSubTab('hm-men-ss', this)" class="active">S/S</button>
+                    <button onclick="showSubTab('hm-men-fw', this)">F/W</button>
+                    <button onclick="showSubTab('hm-men-best', this)">Best Items</button>
+                </div>
+                <div id="hm-men-ss" class="gallery"></div>
+                <div id="hm-men-fw" class="gallery" style="display:none;"></div>
+                <div id="hm-men-best" class="gallery" style="display:none;"></div>
+            </div>
+            <div id="hm-women" class="gallery-tabs" style="display:none;">
+                <div class="tab-buttons">
+                    <button onclick="showSubTab('hm-women-ss', this)" class="active">S/S</button>
+                    <button onclick="showSubTab('hm-women-fw', this)">F/W</button>
+                    <button onclick="showSubTab('hm-women-best', this)">Best Items</button>
+                </div>
+                <div id="hm-women-ss" class="gallery"></div>
+                <div id="hm-women-fw" class="gallery" style="display:none;"></div>
+                <div id="hm-women-best" class="gallery" style="display:none;"></div>
+            </div>
         </div>
-        <div id="uniqlo" class="tab-content" style="display:none;">
+        <div id="uniqlo" class="tab-content">
             <h2>UNIQLO</h2>
             <div class="tab-buttons">
-                <button onclick="showGenderTab('uniqlo-men')">남자</button>
-                <button onclick="showGenderTab('uniqlo-women')">여자</button>
+                <button onclick="showGenderTab('uniqlo-men', this)" class="active">남자</button>
+                <button onclick="showGenderTab('uniqlo-women', this)">여자</button>
             </div>
-            <div id="uniqlo-men" class="gallery"></div>
-            <div id="uniqlo-women" class="gallery" style="display:none;"></div>
+            <div id="uniqlo-men" class="gallery-tabs">
+                <div class="tab-buttons">
+                    <button onclick="showSubTab('uniqlo-men-ss', this)" class="active">S/S</button>
+                    <button onclick="showSubTab('uniqlo-men-fw', this)">F/W</button>
+                    <button onclick="showSubTab('uniqlo-men-best', this)">Best Items</button>
+                </div>
+                <div id="uniqlo-men-ss" class="gallery"></div>
+                <div id="uniqlo-men-fw" class="gallery" style="display:none;"></div>
+                <div id="uniqlo-men-best" class="gallery" style="display:none;"></div>
+            </div>
+            <div id="uniqlo-women" class="gallery-tabs" style="display:none;">
+                <div class="tab-buttons">
+                    <button onclick="showSubTab('uniqlo-women-ss', this)" class="active">S/S</button>
+                    <button onclick="showSubTab('uniqlo-women-fw', this)">F/W</button>
+                    <button onclick="showSubTab('uniqlo-women-best', this)">Best Items</button>
+                </div>
+                <div id="uniqlo-women-ss" class="gallery"></div>
+                <div id="uniqlo-women-fw" class="gallery" style="display:none;"></div>
+                <div id="uniqlo-women-best" class="gallery" style="display:none;"></div>
+            </div>
         </div>
-        <div id="topten" class="tab-content" style="display:none;">
+        <div id="topten" class="tab-content">
             <h2>탑텐</h2>
             <div class="tab-buttons">
-                <button onclick="showGenderTab('topten-men')">남자</button>
-                <button onclick="showGenderTab('topten-women')">여자</button>
+                <button onclick="showGenderTab('topten-men', this)" class="active">남자</button>
+                <button onclick="showGenderTab('topten-women', this)">여자</button>
             </div>
-            <div id="topten-men" class="gallery"></div>
-            <div id="topten-women" class="gallery" style="display:none;"></div>
+            <div id="topten-men" class="gallery-tabs">
+                <div class="tab-buttons">
+                    <button onclick="showSubTab('topten-men-ss', this)" class="active">S/S</button>
+                    <button onclick="showSubTab('topten-men-fw', this)">F/W</button>
+                    <button onclick="showSubTab('topten-men-best', this)">Best Items</button>
+                </div>
+                <div id="topten-men-ss" class="gallery"></div>
+                <div id="topten-men-fw" class="gallery" style="display:none;"></div>
+                <div id="topten-men-best" class="gallery" style="display:none;"></div>
+            </div>
+            <div id="topten-women" class="gallery-tabs" style="display:none;">
+                <div class="tab-buttons">
+                    <button onclick="showSubTab('topten-women-ss', this)" class="active">S/S</button>
+                    <button onclick="showSubTab('topten-women-fw', this)">F/W</button>
+                    <button onclick="showSubTab('topten-women-best', this)">Best Items</button>
+                </div>
+                <div id="topten-women-ss" class="gallery"></div>
+                <div id="topten-women-fw" class="gallery" style="display:none;"></div>
+                <div id="topten-women-best" class="gallery" style="display:none;"></div>
+            </div>
         </div>
     </div>
 </div>
@@ -211,17 +332,35 @@
 
     function showTab(tabId) {
         document.querySelectorAll('.tab-content').forEach(tab => {
-            tab.style.display = 'none';
+            tab.classList.remove('active');
         });
-        document.getElementById(tabId).style.display = 'block';
+        document.getElementById(tabId).classList.add('active');
     }
 
-    function showGenderTab(genderId) {
+    function showGenderTab(genderId, element) {
         const galleryPrefix = genderId.split('-')[0];
-        document.querySelectorAll(`#${galleryPrefix} .gallery`).forEach(tab => {
+        document.querySelectorAll(`#${galleryPrefix} .gallery-tabs`).forEach(tab => {
             tab.style.display = 'none';
         });
-        document.getElementById(genderId).style.display = 'flex';
+        document.getElementById(genderId).style.display = 'block';
+
+        document.querySelectorAll(`#${galleryPrefix} .tab-buttons button`).forEach(button => {
+            button.classList.remove('active');
+        });
+        element.classList.add('active');
+    }
+
+    function showSubTab(subTabId, element) {
+        const subTabPrefix = subTabId.split('-').slice(0, -1).join('-');
+        document.querySelectorAll(`#${subTabPrefix} .gallery`).forEach(tab => {
+            tab.style.display = 'none';
+        });
+        document.getElementById(subTabId).style.display = 'flex';
+
+        document.querySelectorAll(`#${subTabPrefix} .tab-buttons button`).forEach(button => {
+            button.classList.remove('active');
+        });
+        element.classList.add('active');
     }
 
     function loadFavorites(memberId) {
@@ -230,50 +369,97 @@
             .then(data => {
                 const brandGalleries = {
                     zara: {
-                        men: document.getElementById('zara-men'),
-                        women: document.getElementById('zara-women')
+                        men: {
+                            ss: document.getElementById('zara-men-ss'),
+                            fw: document.getElementById('zara-men-fw'),
+                            best: document.getElementById('zara-men-best')
+                        },
+                        women: {
+                            ss: document.getElementById('zara-women-ss'),
+                            fw: document.getElementById('zara-women-fw'),
+                            best: document.getElementById('zara-women-best')
+                        }
                     },
                     musinsa: {
-                        men: document.getElementById('musinsa-men'),
-                        women: document.getElementById('musinsa-women')
+                        men: {
+                            ss: document.getElementById('musinsa-men-ss'),
+                            fw: document.getElementById('musinsa-men-fw'),
+                            best: document.getElementById('musinsa-men-best')
+                        },
+                        women: {
+                            ss: document.getElementById('musinsa-women-ss'),
+                            fw: document.getElementById('musinsa-women-fw'),
+                            best: document.getElementById('musinsa-women-best')
+                        }
                     },
                     cos: {
-                        men: document.getElementById('cos-men'),
-                        women: document.getElementById('cos-women')
+                        men: {
+                            ss: document.getElementById('cos-men-ss'),
+                            fw: document.getElementById('cos-men-fw'),
+                            best: document.getElementById('cos-men-best')
+                        },
+                        women: {
+                            ss: document.getElementById('cos-women-ss'),
+                            fw: document.getElementById('cos-women-fw'),
+                            best: document.getElementById('cos-women-best')
+                        }
                     },
                     hm: {
-                        men: document.getElementById('hm-men'),
-                        women: document.getElementById('hm-women')
+                        men: {
+                            ss: document.getElementById('hm-men-ss'),
+                            fw: document.getElementById('hm-men-fw'),
+                            best: document.getElementById('hm-men-best')
+                        },
+                        women: {
+                            ss: document.getElementById('hm-women-ss'),
+                            fw: document.getElementById('hm-women-fw'),
+                            best: document.getElementById('hm-women-best')
+                        }
                     },
                     uniqlo: {
-                        men: document.getElementById('uniqlo-men'),
-                        women: document.getElementById('uniqlo-women')
+                        men: {
+                            ss: document.getElementById('uniqlo-men-ss'),
+                            fw: document.getElementById('uniqlo-men-fw'),
+                            best: document.getElementById('uniqlo-men-best')
+                        },
+                        women: {
+                            ss: document.getElementById('uniqlo-women-ss'),
+                            fw: document.getElementById('uniqlo-women-fw'),
+                            best: document.getElementById('uniqlo-women-best')
+                        }
                     },
                     topten: {
-                        men: document.getElementById('topten-men'),
-                        women: document.getElementById('topten-women')
+                        men: {
+                            ss: document.getElementById('topten-men-ss'),
+                            fw: document.getElementById('topten-men-fw'),
+                            best: document.getElementById('topten-men-best')
+                        },
+                        women: {
+                            ss: document.getElementById('topten-women-ss'),
+                            fw: document.getElementById('topten-women-fw'),
+                            best: document.getElementById('topten-women-best')
+                        }
                     }
                 };
 
                 Object.keys(brandGalleries).forEach(brand => {
-                    brandGalleries[brand].men.innerHTML = '';
-                    brandGalleries[brand].women.innerHTML = '';
+                    Object.keys(brandGalleries[brand]).forEach(gender => {
+                        Object.keys(brandGalleries[brand][gender]).forEach(tab => {
+                            brandGalleries[brand][gender][tab].innerHTML = '';
+                        });
+                    });
                 });
 
                 data.forEach(photo => {
-                    const galleryItem = createGalleryItem(memberId, photo.photoId, photo.gender, photo.brand || 'zara'); // default to 'zara' if brand is null
-                    const brandGallery = brandGalleries[photo.brand ? photo.brand.toLowerCase() : 'zara']; // default to 'zara' if brand is null
-                    if (photo.gender === 'men') {
-                        brandGallery.men.appendChild(galleryItem);
-                    } else {
-                        brandGallery.women.appendChild(galleryItem);
-                    }
+                    const galleryItem = createGalleryItem(memberId, photo.photoId, photo.gender, photo.brand || 'zara', photo.tab || 'ss'); // default to 'zara' and 'ss' if brand or tab is null
+                    const brandGallery = brandGalleries[photo.brand ? photo.brand.toLowerCase() : 'zara'][photo.gender][photo.tab ? photo.tab.toLowerCase() : 'ss'];
+                    brandGallery.appendChild(galleryItem);
                 });
             })
             .catch(error => console.error('Error:', error));
     }
 
-    function createGalleryItem(memberId, photoId, gender, brand) {
+    function createGalleryItem(memberId, photoId, gender, brand, tab) {
         const galleryItem = document.createElement('div');
         galleryItem.className = 'gallery-item';
         galleryItem.id = `favorite-${photoId}`;
@@ -308,7 +494,6 @@
             })
             .then(data => {
                 console.log('Favorite deleted successfully:', data);
-                // UI에서 해당 항목을 제거합니다
                 document.querySelectorAll(`#favorite-${photoId}`).forEach(item => item.remove());
             })
             .catch(error => console.error('Error:', error));
@@ -320,13 +505,12 @@
             .then(user => {
                 currentUser = user;
                 document.getElementById('username').textContent = user.name;
-                loadFavorites(user.id); // 사용자 ID를 사용하여 찜한 사진을 로드
+                loadFavorites(user.id);
             })
             .catch(error => console.error('Error:', error));
     }
 
     document.addEventListener('DOMContentLoaded', getCurrentUser);
-
 </script>
 
 </body>
