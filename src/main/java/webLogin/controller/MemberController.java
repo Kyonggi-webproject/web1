@@ -110,6 +110,7 @@ public class MemberController {
         return "redirect:/login?logout";
     }
 
+    //매핑 분리필요함 일단 MemberController에 ...
     @GetMapping("/zara")
     public String zaraPage(Model model) {
         addAuthenticatedUserNameToModel(model);
@@ -119,6 +120,16 @@ public class MemberController {
     public String zaraSubPage(Model model) {
         addAuthenticatedUserNameToModel(model);
         return "zaraSub1";
+    }
+    @GetMapping("/hm")
+    public String hmPage(Model model) {
+        addAuthenticatedUserNameToModel(model);
+        return "hm";
+    }
+    @GetMapping("/hmSub1")
+    public String hmSubPage(Model model) {
+        addAuthenticatedUserNameToModel(model);
+        return "hmSub1";
     }
 
     private void addAuthenticatedUserNameToModel(Model model) {
