@@ -18,8 +18,8 @@ public class FavoriteController {
     private FavoriteService favoriteService;
 
     @PostMapping("/add")
-    public String addFavorite(@RequestParam Long memberId, @RequestParam Long photoId, @RequestParam String gender) {
-        favoriteService.addFavorite(memberId, photoId, gender);
+    public String addFavorite(@RequestParam Long memberId, @RequestParam Long photoId, @RequestParam String gender, @RequestParam String brand) {
+        favoriteService.addFavorite(memberId, photoId, gender, brand);
         return "Favorite added successfully";
     }
 

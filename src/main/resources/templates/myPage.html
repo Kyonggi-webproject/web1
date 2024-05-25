@@ -173,7 +173,7 @@
             <div id="cos-women" class="gallery" style="display:none;"></div>
         </div>
         <div id="hm" class="tab-content" style="display:none;">
-            <h2>H&M</h2>
+            <h2 onclick="location.href='/hm'">H&M</h2>
             <div class="tab-buttons">
                 <button onclick="showGenderTab('hm-men')">남자</button>
                 <button onclick="showGenderTab('hm-women')">여자</button>
@@ -228,31 +228,58 @@
         fetch(`/favorites/list/${memberId}`)
             .then(response => response.json())
             .then(data => {
-                const zaraMen = document.getElementById('zara-men');
-                const zaraWomen = document.getElementById('zara-women');
+                const brandGalleries = {
+                    zara: {
+                        men: document.getElementById('zara-men'),
+                        women: document.getElementById('zara-women')
+                    },
+                    musinsa: {
+                        men: document.getElementById('musinsa-men'),
+                        women: document.getElementById('musinsa-women')
+                    },
+                    cos: {
+                        men: document.getElementById('cos-men'),
+                        women: document.getElementById('cos-women')
+                    },
+                    hm: {
+                        men: document.getElementById('hm-men'),
+                        women: document.getElementById('hm-women')
+                    },
+                    uniqlo: {
+                        men: document.getElementById('uniqlo-men'),
+                        women: document.getElementById('uniqlo-women')
+                    },
+                    topten: {
+                        men: document.getElementById('topten-men'),
+                        women: document.getElementById('topten-women')
+                    }
+                };
 
-                zaraMen.innerHTML = '';
-                zaraWomen.innerHTML = '';
+                Object.keys(brandGalleries).forEach(brand => {
+                    brandGalleries[brand].men.innerHTML = '';
+                    brandGalleries[brand].women.innerHTML = '';
+                });
 
                 data.forEach(photo => {
-                    const galleryItem = createGalleryItem(memberId, photo.photoId, photo.gender);
+                    const galleryItem = createGalleryItem(memberId, photo.photoId, photo.gender, photo.brand || 'zara'); // default to 'zara' if brand is null
+                    const brandGallery = brandGalleries[photo.brand ? photo.brand.toLowerCase() : 'zara']; // default to 'zara' if brand is null
                     if (photo.gender === 'men') {
-                        zaraMen.appendChild(galleryItem);
+                        brandGallery.men.appendChild(galleryItem);
                     } else {
-                        zaraWomen.appendChild(galleryItem);
+                        brandGallery.women.appendChild(galleryItem);
                     }
                 });
             })
             .catch(error => console.error('Error:', error));
     }
 
-    function createGalleryItem(memberId, photoId, gender) {
+    function createGalleryItem(memberId, photoId, gender, brand) {
         const galleryItem = document.createElement('div');
         galleryItem.className = 'gallery-item';
         galleryItem.id = `favorite-${photoId}`;
 
         const img = document.createElement('img');
-        img.src = `/assets/img/zaraImg/${gender === 'men' ? 'zaraSubImgMen' : 'zaraSubImgWomen'}/${photoId}.png`;
+        img.src = `/assets/img/${brand.toLowerCase()}Img/${gender === 'men' ? `${brand.toLowerCase()}SubImgMen` : `${brand.toLowerCase()}SubImgWomen`}/${photoId}.png`;
         img.alt = `Favorite photo ${photoId}`;
 
         const deleteButton = document.createElement('button');
@@ -299,6 +326,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', getCurrentUser);
+
 </script>
 
 </body>

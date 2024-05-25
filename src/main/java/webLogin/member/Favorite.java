@@ -20,13 +20,17 @@ public class Favorite {
     @Column(name = "photo_id")
     private Long photoId;
 
-    @Column(name = "gender")  // 추가
+    @Column(name = "gender")
     private String gender;
 
-    public Favorite(Member member, Long photoId, String gender) {  // 수정
+    @Column(name = "brand")  // 추가된 필드
+    private String brand;
+
+    public Favorite(Member member, Long photoId, String gender, String brand) {
         this.member = member;
         this.photoId = photoId;
-        this.gender = gender;  // 추가
+        this.gender = gender;
+        this.brand = brand;
     }
 
     // Getters and Setters (if not using Lombok)
@@ -54,11 +58,19 @@ public class Favorite {
         this.photoId = photoId;
     }
 
-    public String getGender() {  // 추가
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {  // 추가
+    public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getBrand() {  // 추가된 메서드
+        return brand;
+    }
+
+    public void setBrand(String brand) {  // 추가된 메서드
+        this.brand = brand;
     }
 }

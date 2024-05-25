@@ -5,9 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53840e29-9225-49ad-b985-90910faead68" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen/16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen/17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen/18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen/19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen/20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen/21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen/22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen/23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen/25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen/26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen/27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen/28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen/29.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen/30.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/webLogin/controller/FavoriteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webLogin/controller/FavoriteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/webLogin/member/Favorite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webLogin/member/Favorite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/webLogin/repository/FavoriteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webLogin/repository/FavoriteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/webLogin/service/FavoriteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webLogin/service/FavoriteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/hmSub1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/hmSub1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/myPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/myPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zara.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zara.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/zaraSub1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/zaraSub1.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,9 +41,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -48,6 +66,7 @@
     "JavaScript Debug.home.html.executor": "Run",
     "JavaScript Debug.login.html.executor": "Run",
     "JavaScript Debug.myPage.html.executor": "Run",
+    "JavaScript Debug.zara.html.executor": "Run",
     "JavaScript Debug.zaraSub1.html.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -83,11 +102,11 @@
       <recent name="$PROJECT_DIR$/web1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgWomen" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg/hmSubImgMen" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/assets/img/hmImg" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static/assets/img/zaraImg/zaraSubImgMan" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
-      <recent name="$PROJECT_DIR$/src/main/resources/static/assets/img" />
-      <recent name="$PROJECT_DIR$/src/main/resources/static" />
-      <recent name="$PROJECT_DIR$/src/main/resources/static/assets" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="webLogin.service" />
@@ -115,6 +134,7 @@
       <workItem from="1716311014786" duration="9531000" />
       <workItem from="1716441018971" duration="13110000" />
       <workItem from="1716478664473" duration="14691000" />
+      <workItem from="1716529190307" duration="29742000" />
     </task>
     <servers />
   </component>
