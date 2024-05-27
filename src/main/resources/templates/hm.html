@@ -14,6 +14,17 @@
             padding: 0;
             box-sizing: border-box;
         }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 1); /* 유니클로의 대표적인 빨간색 */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
         body {
             font-family: 'Roboto', 'Raleway', sans-serif;
@@ -368,14 +379,18 @@
                 </div>
             </div>
             <div class="gallery-item">
+                <a th:href="@{/hmSub1}">
                 <img src="/assets/img/hmImg/fw.png" alt="Look 2">
+                </a>
                 <div class="gallery-item-info">
                     <h3>F/W Collection</h3>
                     <p>Light and breezy outfits perfect for F/W season.</p>
                 </div>
             </div>
             <div class="gallery-item">
+                <a th:href="@{/hmSub1}">
                 <img src="/assets/img/hmImg/best.png" alt="Look 3">
+                </a>
                 <div class="gallery-item-info">
                     <h3>Best Items</h3>
                     <p>You can see Best Items</p>
@@ -389,6 +404,8 @@
     <div class="container">
         <h2>About H&M</h2>
         <p>H&M is a global fashion brand offering the latest trends in clothing and accessories for men, women, and children. Our mission is to provide high-quality, stylish products at affordable prices, making fashion accessible to everyone.</p>
+        <a href="https://www2.hm.com/ko_kr/index.html" target="_blank" class="btn">Visit H&M  Official Website</a>
+
     </div>
 </section>
 
