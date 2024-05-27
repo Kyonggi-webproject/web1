@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOPTEN Lookbook</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: white;
+      color: black;
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: white;
+      color: black;
+      padding: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .navbar-toggler {
+      display: none;
+      background: none;
+      border: none;
+      color: black;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .header nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    .header nav ul li {
+      margin-left: 2rem;
+    }
+
+    .header nav ul li a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .header nav ul li a:hover {
+      color: #333;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      background: white;
+      padding: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu a {
+      color: black;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 0 1.5rem;
+      padding-bottom: 0.5rem;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: #333;
+      border-bottom: 2px solid #333;
+    }
+
+    .section {
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      height: 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 0.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-item-info {
+      opacity: 1;
+      transform: translateY(-20px);
+    }
+
+    .favorite-btn {
+      background: black;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer {
+      background: white;
+      color: black;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 3rem;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+
+
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <h1 onclick="location.href='/cos'">TOPTEN Lookbook</h1>
+    <button class="navbar-toggler" id="menuButton">
+      &#9776;
+    </button>
+  </div>
+</header>
+<nav class="menu">
+  <a href="#men" onclick="showSection('men')">Men</a>
+  <a href="#women" onclick="showSection('women')">Women</a>
+  <th:block th:if="${username}">
+    <li><a href="/myPage">Welcome, <span th:text="${username}"></span></a></li>
+    <li><a href="/logout">Logout</a></li>
+  </th:block>
+</nav>
+<section id="men" class="section" style="display:none;">
+  <h2>Men's Collection</h2>
+  <div class="tabs">
+    <button onclick="showTab('men-ss', this)" class="active">S/S</button>
+    <button onclick="showTab('men-fw', this)">F/W</button>
+    <button onclick="showTab('men-best', this)">Best Items</button>
+  </div>
+  <div id="men-ss" class="tab-content">
+    <div class="gallery">
+      <!-- men S/S Images Here 예시 -->
+
+
+    </div>
+  </div>
+  <div id="men-fw" class="tab-content" style="display:none;">
+    <div class="gallery">
+      <!-- men F/W Images Here 예시-->
+
+    </div>
+  </div>
+  <div id="men-best" class="tab-content" style="display:none;">
+    <div class="gallery">
+      <!-- men Best Items Images Here 예시-->
+    </div>
+  </div>
+</section>
+<section id="women" class="section" style="display:none;">
+  <h2>Women's Collection</h2>
+  <div class="tabs">
+    <button onclick="showTab('women-ss', this)" class="active">S/S</button>
+    <button onclick="showTab('women-fw', this)">F/W</button>
+    <button onclick="showTab('women-best', this)">Best Items</button>
+  </div>
+  <div id="women-ss" class="tab-content">
+    <div class="gallery">
+
+      <!-- Women S/S Images Here 예시-->
+      <div class="gallery-item">
+        <img src="/assets/img/cosImg/cosSubImgMen/39.png" alt="Women Look 1">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(155, 'women', 'uniqlo', 'ss')">찜하기</button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <div id="women-fw" class="tab-content" style="display:none;">
+    <div class="gallery">
+      <!-- Women F/W Images Here 예시-->
+      <div class="gallery-item">
+        <img src="/assets/img/cosImg/cosSubImgMen/155.png" alt="Women Look 1">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(155, 'women', 'uniqlo', 'fw')">찜하기</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div id="women-best" class="tab-content" style="display:none;">
+    <div class="gallery">
+
+      <!-- Women Best Items Images Here 예시-->
+      <div class="gallery-item">
+        <img src="/assets/img/cosImg/cosSubImgMen/155.png" alt="Women Look 1">
+        <div class="gallery-item-info">
+          <button class="favorite-btn" onclick="addFavorite(155, 'women', 'uniqlo', 'best')">찜하기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2024 TOPTen Lookbook. All Rights Reserved.</p>
+  </div>
+</footer>
+<script>
+  let currentUser = null;
+
+  function showSection(sectionId) {
+    document.querySelectorAll('.section').forEach(section => {
+      section.style.display = 'none';
+    });
+    document.getElementById(sectionId).style.display = 'block';
+  }
+
+  function showTab(tabId, element) {
+    document.querySelectorAll('.tab-content').forEach(tab => {
+      tab.style.display = 'none';
+    });
+    document.querySelectorAll('.tabs button').forEach(button => {
+      button.classList.remove('active');
+    });
+    document.getElementById(tabId).style.display = 'block';
+    element.classList.add('active');
+  }
+
+  function addFavorite(photoId, gender, brand, tab) {
+    if (!currentUser) {
+      alert('Please log in to add favorites.');
+      return;
+    }
+
+    const memberId = currentUser.id;
+    fetch(`/favorites/add?memberId=${memberId}&photoId=${photoId}&gender=${gender}&brand=${brand}&tab=${tab}`, {
+      method: 'POST'
+    })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+              }
+              return response.text();
+            })
+            .then(data => {
+              alert(data);
+              console.log('Favorite added successfully:', data);
+            })
+            .catch(error => console.error('Error:', error));
+  }
+
+  function getCurrentUser() {
+    fetch('/current-user')
+            .then(response => response.json())
+            .then(user => {
+              currentUser = user;
+            })
+            .catch(error => console.error('Error:', error));
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    getCurrentUser();
+    document.querySelectorAll('.tabs button')[0].click();
+
+    const menuButton = document.querySelector('#menuButton');
+    const closeButton = document.querySelector('#closeButton');
+    const slideMenu = document.querySelector('#slideMenu');
+
+    if(menuButton) {
+      menuButton.addEventListener('click', function() {
+        slideMenu.classList.toggle('show');
+        menuButton.style.display = 'none';
+      });
+    }
+
+    if(closeButton) {
+      closeButton.addEventListener('click', function() {
+        slideMenu.classList.toggle('show');
+        menuButton.style.display = 'block';
+      });
+    }
+
+    document.querySelectorAll('.nav-link, .slide-menu a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth'
+          });
+          slideMenu.classList.remove('show');
+          menuButton.style.display = 'block';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COS Lookbook</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: white;
+            color: black;
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: white;
+            color: black;
+            padding: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .navbar-toggler {
+            display: none;
+            background: none;
+            border: none;
+            color: black;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .header nav ul li {
+            margin-left: 2rem;
+        }
+
+        .header nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .header nav ul li a:hover {
+            color: #333;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0 1.5rem;
+            padding-bottom: 0.5rem;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #333;
+            border-bottom: 2px solid #333;
+        }
+
+        .section {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-item-info {
+            opacity: 1;
+            transform: translateY(-20px);
+        }
+
+        .favorite-btn {
+            background: black;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            background: white;
+            color: black;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <h1 onclick="location.href='/cos'">COS Lookbook</h1>
+        <button class="navbar-toggler" id="menuButton">
+            &#9776;
+        </button>
+    </div>
+</header>
+<nav class="menu">
+    <a href="#men" onclick="showSection('men')">Men</a>
+    <a href="#women" onclick="showSection('women')">Women</a>
+    <th:block th:if="${username}">
+        <li><a href="/myPage">Welcome, <span th:text="${username}"></span></a></li>
+        <li><a href="/logout">Logout</a></li>
+    </th:block>
+</nav>
+<section id="men" class="section" style="display:none;">
+    <h2>Men's Collection</h2>
+    <div class="tabs">
+        <button onclick="showTab('men-ss', this)" class="active">S/S</button>
+        <button onclick="showTab('men-fw', this)">F/W</button>
+        <button onclick="showTab('men-best', this)">Best Items</button>
+    </div>
+    <div id="men-ss" class="tab-content">
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/147.png" alt="Men Look 3">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(147, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/148.png" alt="Men Look 4">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(148, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/149.png" alt="Men Look 5">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(149, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/150.png" alt="Men Look 6">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(150, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/151.png" alt="Men Look 7">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(151, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/152.png" alt="Men Look 8">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(152, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/153.png" alt="Men Look 9">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(153, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/154.png" alt="Men Look 10">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(154, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/155.png" alt="Men Look 11">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(155, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/156.png" alt="Men Look 12">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(156, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/157.png" alt="Men Look 13">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(157, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/158.png" alt="Men Look 14">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(158, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/159.png" alt="Men Look 15">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(159, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/160.png" alt="Men Look 16">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(160, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/161.png" alt="Men Look 17">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(161, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/162.png" alt="Men Look 18">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(162, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/163.png" alt="Men Look 19">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(163, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/164.png" alt="Men Look 20">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(164, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/165.png" alt="Men Look 21">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(165, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/166.png" alt="Men Look 22">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(166, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/167.png" alt="Men Look 23">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(167, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/168.png" alt="Men Look 24">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(168, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/169.png" alt="Men Look 25">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(169, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/170.png" alt="Men Look 26">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(170, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/171.png" alt="Men Look 27">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(171, 'men', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="men-fw" class="tab-content" style="display:none;">
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/199.png" alt="Men Look 199">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(199, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/200.png" alt="Men Look 200">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(200, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/201.png" alt="Men Look 201">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(201, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/202.png" alt="Men Look 202">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(202, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/203.png" alt="Men Look 203">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(203, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/204.png" alt="Men Look 204">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(204, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/205.png" alt="Men Look 205">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(205, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/206.png" alt="Men Look 206">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(206, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/207.png" alt="Men Look 207">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(207, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/208.png" alt="Men Look 208">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(208, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/209.png" alt="Men Look 209">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(209, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/210.png" alt="Men Look 210">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(210, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/211.png" alt="Men Look 211">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(211, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/212.png" alt="Men Look 212">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(212, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/213.png" alt="Men Look 213">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(213, 'men', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="men-best" class="tab-content" style="display:none;">
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/240.png" alt="Men Look 240">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(240, 'men', 'cos', 'best')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgMen/241.png" alt="Men Look 241">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(241, 'men', 'cos', 'best')">찜하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="women" class="section" style="display:none;">
+    <h2>Women's Collection</h2>
+    <div class="tabs">
+        <button onclick="showTab('women-ss', this)" class="active">S/S</button>
+        <button onclick="showTab('women-fw', this)">F/W</button>
+        <button onclick="showTab('women-best', this)">Best Items</button>
+    </div>
+    <div id="women-ss" class="tab-content">
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/172.png" alt="Women Look 1">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(172, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/173.png" alt="Women Look 2">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(173, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/174.png" alt="Women Look 3">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(174, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/175.png" alt="Women Look 4">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(175, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/176.png" alt="Women Look 5">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(176, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/177.png" alt="Women Look 6">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(177, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/178.png" alt="Women Look 7">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(178, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/179.png" alt="Women Look 8">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(179, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/180.png" alt="Women Look 9">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(180, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/181.png" alt="Women Look 10">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(181, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/182.png" alt="Women Look 11">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(182, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/183.png" alt="Women Look 12">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(183, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/184.png" alt="Women Look 13">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(184, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/185.png" alt="Women Look 14">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(185, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/186.png" alt="Women Look 15">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(186, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/187.png" alt="Women Look 16">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(187, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/188.png" alt="Women Look 17">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(188, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/189.png" alt="Women Look 18">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(189, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/190.png" alt="Women Look 19">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(190, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/191.png" alt="Women Look 20">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(191, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/192.png" alt="Women Look 21">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(192, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/193.png" alt="Women Look 22">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(193, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/194.png" alt="Women Look 23">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(194, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/195.png" alt="Women Look 24">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(195, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/196.png" alt="Women Look 25">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(196, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/197.png" alt="Women Look 26">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(197, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/198.png" alt="Women Look 27">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(198, 'women', 'cos', 'ss')">찜하기</button>
+                </div>
+            </div>
+            <!-- Women S/S Images Here -->
+        </div>
+    </div>
+    <div id="women-fw" class="tab-content" style="display:none;">
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/214.png" alt="Women Look 28">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(214, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/215.png" alt="Women Look 29">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(215, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/216.png" alt="Women Look 30">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(216, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/217.png" alt="Women Look 31">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(217, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/218.png" alt="Women Look 32">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(218, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/219.png" alt="Women Look 33">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(219, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/220.png" alt="Women Look 34">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(220, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/221.png" alt="Women Look 35">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(221, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/222.png" alt="Women Look 36">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(222, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/223.png" alt="Women Look 37">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(223, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/224.png" alt="Women Look 38">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(224, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/225.png" alt="Women Look 39">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(225, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/226.png" alt="Women Look 40">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(226, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/227.png" alt="Women Look 41">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(227, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/228.png" alt="Women Look 42">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(228, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/229.png" alt="Women Look 43">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(229, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/230.png" alt="Women Look 44">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(230, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/231.png" alt="Women Look 45">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(231, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/232.png" alt="Women Look 46">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(232, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/233.png" alt="Women Look 47">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(233, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/234.png" alt="Women Look 48">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(234, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/235.png" alt="Women Look 49">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(235, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/236.png" alt="Women Look 50">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(236, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/237.png" alt="Women Look 51">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(237, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/238.png" alt="Women Look 52">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(238, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/239.png" alt="Women Look 53">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(239, 'women', 'cos', 'fw')">찜하기</button>
+                </div>
+            </div>
+
+            <!-- Women F/W Images Here -->
+        </div>
+    </div>
+    <div id="women-best" class="tab-content" style="display:none;">
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/242.png" alt="Women Look 54">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(242, 'women', 'cos', 'best')">찜하기</button>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/img/cosImg/cosSubImgWomen/243.png" alt="Women Look 55">
+                <div class="gallery-item-info">
+                    <button class="favorite-btn" onclick="addFavorite(243, 'women', 'cos', 'best')">찜하기</button>
+                </div>
+            </div>
+            <!-- Women Best Items Images Here -->
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 COS Lookbook. All Rights Reserved.</p>
+    </div>
+</footer>
+<script>
+    let currentUser = null;
+
+    function showSection(sectionId) {
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.display = 'none';
+        });
+        document.getElementById(sectionId).style.display = 'block';
+    }
+
+    function showTab(tabId, element) {
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.style.display = 'none';
+        });
+        document.querySelectorAll('.tabs button').forEach(button => {
+            button.classList.remove('active');
+        });
+        document.getElementById(tabId).style.display = 'block';
+        element.classList.add('active');
+    }
+
+    function addFavorite(photoId, gender, brand, tab) {
+        if (!currentUser) {
+            alert('Please log in to add favorites.');
+            return;
+        }
+
+        const memberId = currentUser.id;
+        fetch(`/favorites/add?memberId=${memberId}&photoId=${photoId}&gender=${gender}&brand=${brand}&tab=${tab}`, {
+            method: 'POST'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.text();
+            })
+            .then(data => {
+                alert(data);
+                console.log('Favorite added successfully:', data);
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    function getCurrentUser() {
+        fetch('/current-user')
+            .then(response => response.json())
+            .then(user => {
+                currentUser = user;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        getCurrentUser();
+        document.querySelectorAll('.tabs button')[0].click();
+
+        const menuButton = document.querySelector('#menuButton');
+        const closeButton = document.querySelector('#closeButton');
+        const slideMenu = document.querySelector('#slideMenu');
+
+        if(menuButton) {
+            menuButton.addEventListener('click', function() {
+                slideMenu.classList.toggle('show');
+                menuButton.style.display = 'none';
+            });
+        }
+
+        if(closeButton) {
+            closeButton.addEventListener('click', function() {
+                slideMenu.classList.toggle('show');
+                menuButton.style.display = 'block';
+            });
+        }
+
+        document.querySelectorAll('.nav-link, .slide-menu a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    slideMenu.classList.remove('show');
+                    menuButton.style.display = 'block';
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
