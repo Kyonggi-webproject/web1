@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musinsa Standard Lookbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 기본 스타일 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* 헤더 스타일 */
+        .header {
+            background: #000;
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .header nav ul li {
+            margin-left: 2rem;
+        }
+
+        .header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .header nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        #home {
+            background-image: url('/assets/img/musinsaImg/MUSINSA_concept.jpg'); /* 이미지 경로 설정 */
+            background-size: cover; /* 이미지 크기를 요소에 맞게 조정 */
+            background-position: center; /* 이미지 중심을 요소 중심에 맞춤 */
+            background-repeat: no-repeat; /* 이미지 반복 방지 */
+            padding: 20px; /* 필요에 따라 패딩 설정 */
+            border-radius: 10px; /* 필요에 따라 테두리 반경 설정 */
+            height: 1180px;
+        }
+
+        /* 히어로 섹션 스타일 */
+        .hero {
+
+            color: #fff;
+            text-align: center;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column; /* 수직 정렬 */
+            align-items: center; /* 수평 중앙 정렬 */
+            justify-content: center; /* 수직 중앙 정렬 */
+            height: 100vh; /* 전체 높이 사용 */
+            text-align: center; /* 텍스트 중앙 정렬 */
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero .btn {
+            background: #000;
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background: #333;
+        }
+
+        /* about 섹션 스타일 */
+        .about {
+            padding: 3rem 1rem;
+            background: #f4f4f4;
+            text-align: center;
+        }
+
+        .about .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* collection 섹션 스타일 */
+        .collection {
+            padding: 3rem 1rem;
+        }
+
+        .collection .container {
+            text-align: center;
+        }
+
+        .collection .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .collection .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .collection .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .collection .gallery-item video {
+            width: 100%;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .collection .gallery-item-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .collection .gallery-item:hover .gallery-item-info {
+            opacity: 1;
+        }
+
+        /* footer 스타일 */
+        .footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .logo {
+            width: 150px; /* 원하는 너비로 설정 */
+            height: auto; /* 높이는 비율에 맞게 자동 설정 */
+            border-radius: 15px; /* 가장자리를 둥글게 설정 */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* 그림자와 투명도 설정 */
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 1); /* 유니클로의 대표적인 빨간색 */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: rgba(0, 0, 0, 0.7); /* hover 시 어두운 빨간색 */
+            transform: translateY(-2px); /* hover 시 약간 위로 이동 */
+        }
+
+        .btn:active {
+            background-color: rgba(0, 0, 0, 1); /* 클릭 시 원래 색으로 돌아옴 */
+            transform: translateY(0); /* 클릭 시 원래 위치로 돌아옴 */
+        }
+        .home-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #e60012;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: background 0.3s ease;
+            z-index: 1001; /* Ensure the button is always on top */
+        }
+
+        .home-button:hover {
+            background: #cc000f;
+        }
+
+    </style>
+
+    <script>
+        function navigate(url) {
+            window.location.href = url;
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // 비디오 무한 반복 설정
+            const videos = document.querySelectorAll(".gallery-item video");
+            videos.forEach(video => {
+                video.loop = true;
+                video.muted = true;
+                video.play();
+            });
+        });
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>&nbsp;Musinsa Standard Lookbook</h1>
+            <nav>
+                <ul>
+                    <li><a href="#collection">Collection</a></li>
+                    <li><a href="#home">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <img src="/assets/img/musinsaImg/MUSINSA_Logo.jpg" alt="MUSINSA_logo" class="logo">
+            <h2 class="background-image">Discover the Latest Trends</h2>
+            <p class="background-image">Explore our latest collections and get inspired by our stylish lookbook.</p>
+        </div>
+    </section>
+
+    <section id="collection" class="collection">
+        <div class="container">
+            <h2>Our Collection</h2> 
+            <div class="gallery">
+                <a th:href="@{/muSinSaSub1}" class="gallery-item">
+                    <video src="/assets/img/musinsaImg/MUSINSA STANDARD 24SS COLLECTION.mp4" autoplay muted loop></video>
+                    <div class="gallery-item-info">
+                        <h3>S/S Collection</h3>
+                        <p>Fresh and vibrant styles for the S/S season.</p>
+                    </div>
+                </a>
+                <a th:href="@{/muSinSaSub1}" class="gallery-item">
+                    <video src="/assets/img/musinsaImg/MUSINSA STANDARD Fall Winter 2023.mp4" autoplay muted loop></video>
+                    <div class="gallery-item-info">
+                        <h3>F/W Collection</h3>
+                        <p>F/W season with a warm feeling.</p>
+                    </div>
+                </a>
+                <a th:href="@{/muSinSaSub1}" class="gallery-item">
+                    <video src="/assets/img/musinsaImg/123.mp4" autoplay muted loop></video>
+                    <div class="gallery-item-info">
+                        <h3>Best Collection</h3>
+                        <p>Best Sales Product of the Year.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Musinsa Standard</h2>
+            <p>Musinsa Standard is a brand that epitomizes the perfect balance of style and function. Our mission is to provide high-quality, versatile fashion that meets the needs of modern consumers.</p>
+            <a href="https://www.musinsa.com/brands/musinsastandard" target="_blank" class="btn">Visit MUSINSA STANDARD Official Website</a>
+        </div>    
+    </section>
+
+    <button class="home-button" onclick="location.href='/home'">LookBook Archive로 돌아가기</button>
+
+    <footer id="contact" class="footer">
+        <div class="container">
+            <p>&copy; 2024 Musinsa Standard Lookbook. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

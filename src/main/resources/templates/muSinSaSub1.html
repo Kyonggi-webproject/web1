@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Musinsa Standard Lookbook</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: white;
+      color: #222;
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: #fff;
+      color: #222;
+      padding: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      cursor: pointer;
+      color: #000;
+    }
+
+    .navbar-toggler {
+      display: none;
+      background: none;
+      border: none;
+      color: #222;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .header nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    .header nav ul li {
+      margin-left: 2rem;
+    }
+
+    .header nav ul li a {
+      color: #222;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .header nav ul li a:hover {
+      color: #444;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      background: #fff;
+      padding: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu a {
+      color: #222;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 0 1.5rem;
+      padding-bottom: 0.5rem;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: #444;
+      border-bottom: 2px solid #444;
+    }
+
+    .section {
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      height: 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 0.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-item-info {
+      opacity: 1;
+      transform: translateY(-20px);
+    }
+
+    .favorite-btn {
+      background: #000;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer {
+      background: white;
+      color: black;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 3rem;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<header class="header">
+  <div class="container">
+      <h1 onclick="location.href='/muSinSa'">Musinsa Standard Lookbook</h1>
+    <button class="navbar-toggler" id="menuButton">
+      &#9776;
+    </button>
+  </div>
+</header>
+
+
+
+<nav class="menu">
+  <a href="#men" onclick="showSection('men')">Men</a>
+  <a href="#women" onclick="showSection('women')">Women</a>
+  <th:block th:if="${username}">
+    <li><a href="/myPage">Welcome, <span th:text="${username}"></span></a></li>
+    <li><a href="/logout">Logout</a></li>
+  </th:block>
+</nav>
+
+
+
+<section id="men" class="section" style="display:none;">
+  <h2>Men's Collection</h2>
+  <div class="tabs">
+    <button onclick="showTab('men-ss', this)" class="active">S/S</button>
+    <button onclick="showTab('men-fw', this)">F/W</button>
+    <button onclick="showTab('men-best', this)">Best Items</button>
+  </div>
+
+
+  <div id="men-ss" class="tab-content">
+    <div class="gallery">
+      <!-- men S/S Images Here -->
+
+      <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1000.png" alt="Men Look 1">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1000, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1001.png" alt="Men Look 2">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1001, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1002.png" alt="Men Look 3">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1002, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1003.png" alt="Men Look 4">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1003, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1004.png" alt="Men Look 5">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1004, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1005.png" alt="Men Look 6">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1005, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1006.png" alt="Men Look 7">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1006, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1007.png" alt="Men Look 8">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1007, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1008.png" alt="Men Look 9">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1008, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1009.png" alt="Men Look 10">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1009, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1010.png" alt="Men Look 11">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1010, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1011.png" alt="Men Look 12">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1011, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1012.png" alt="Men Look 13">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1012, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1013.png" alt="Men Look 14">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1013, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1014.png" alt="Men Look 15">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1014, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1015.png" alt="Men Look 16">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1015, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1016.png" alt="Men Look 17">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1016, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1017.png" alt="Men Look 18">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1017, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1018.png" alt="Men Look 19">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1018, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/1019.png" alt="Men Look 20">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(1019, 'men', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    
+    </div>
+  </div>
+
+  <div id="men-fw" class="tab-content" style="display:none;">
+    <div class="gallery">
+      <!-- men F/W Images Here -->
+
+      <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2000.png" alt="Men Look 1">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2000, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2001.png" alt="Men Look 2">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2001, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2002.png" alt="Men Look 3">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2002, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2003.png" alt="Men Look 4">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2003, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2004.png" alt="Men Look 5">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2004, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2005.png" alt="Men Look 6">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2005, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2006.png" alt="Men Look 7">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2006, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2007.png" alt="Men Look 8">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2007, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2008.png" alt="Men Look 9">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2008, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2009.png" alt="Men Look 20">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2009, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2010.png" alt="Men Look 11">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2010, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2011.png" alt="Men Look 12">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2011, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2012.png" alt="Men Look 13">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2012, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2013.png" alt="Men Look 14">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2013, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2014.png" alt="Men Look 15">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2014, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2015.png" alt="Men Look 16">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2015, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2016.png" alt="Men Look 17">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2016, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2017.png" alt="Men Look 18">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2017, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2018.png" alt="Men Look 19">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2018, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/2019.png" alt="Men Look 20">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(2019, 'men', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    
+    </div>
+  </div>
+
+  <div id="men-best" class="tab-content" style="display:none;">
+    <div class="gallery">
+      <!-- men Best Items Images Here -->
+
+      <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3000.png" alt="Men Look 1">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3000, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3001.png" alt="Men Look 2">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3001, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3002.png" alt="Men Look 3">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3002, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3003.png" alt="Men Look 4">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3003, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3004.png" alt="Men Look 5">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3004, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3005.png" alt="Men Look 6">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3005, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3006.png" alt="Men Look 7">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3006, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3007.png" alt="Men Look 8">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3007, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3008.png" alt="Men Look 9">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3008, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3009.png" alt="Men Look 30">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3009, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3010.png" alt="Men Look 11">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3010, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3011.png" alt="Men Look 12">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3011, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3012.png" alt="Men Look 13">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3012, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3013.png" alt="Men Look 14">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3013, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3014.png" alt="Men Look 15">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3014, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgMen/3015.png" alt="Men Look 16">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(3015, 'men', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+
+    
+    </div>
+  </div>
+</section>
+
+
+
+<section id="women" class="section" style="display:none;">
+  <h2>Women's Collection</h2>
+  <div class="tabs">
+    <button onclick="showTab('women-ss', this)" class="active">S/S</button>
+    <button onclick="showTab('women-fw', this)">F/W</button>
+    <button onclick="showTab('women-best', this)">Best Items</button>
+  </div>
+
+
+  <div id="women-ss" class="tab-content">
+    <div class="gallery">
+      <!-- Women S/S Images Here -->
+
+      <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4000.png" alt="women Look 1">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4000, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4001.png" alt="women Look 2">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4001, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4002.png" alt="women Look 3">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4002, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4003.png" alt="women Look 4">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4003, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4004.png" alt="women Look 5">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4004, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4005.png" alt="women Look 6">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4005, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4006.png" alt="women Look 7">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4006, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4007.png" alt="women Look 8">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4007, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4008.png" alt="women Look 9">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4008, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4009.png" alt="women Look 10">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4009, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4010.png" alt="women Look 11">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4010, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4011.png" alt="women Look 12">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4011, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4012.png" alt="women Look 13">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4012, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4013.png" alt="women Look 14">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4013, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4014.png" alt="women Look 15">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4014, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4015.png" alt="women Look 16">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4015, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4016.png" alt="women Look 17">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4016, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4017.png" alt="women Look 18">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4017, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4018.png" alt="women Look 19">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4018, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/4019.png" alt="women Look 20">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(4019, 'women', 'musinsa', 'ss')">찜하기</button>
+        </div>
+    </div>
+    
+    </div>
+  </div>
+
+  <div id="women-fw" class="tab-content" style="display:none;">
+    <div class="gallery">
+      <!-- Women F/W Images Here -->
+
+      <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5000.png" alt="women Look 1">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5000, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5001.png" alt="women Look 2">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5001, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5002.png" alt="women Look 3">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5002, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5003.png" alt="women Look 4">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5003, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5004.png" alt="women Look 5">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5004, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5005.png" alt="women Look 6">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5005, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5006.png" alt="women Look 7">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5006, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5007.png" alt="women Look 8">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5007, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5008.png" alt="women Look 9">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5008, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5009.png" alt="women Look 10">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5009, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5010.png" alt="women Look 11">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5010, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5011.png" alt="women Look 12">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5011, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5012.png" alt="women Look 13">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5012, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5013.png" alt="women Look 14">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5013, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5014.png" alt="women Look 15">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5014, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5015.png" alt="women Look 16">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5015, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5016.png" alt="women Look 17">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5016, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5017.png" alt="women Look 18">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5017, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5018.png" alt="women Look 19">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5018, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/5019.png" alt="women Look 20">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(5019, 'women', 'musinsa', 'fw')">찜하기</button>
+        </div>
+    </div>
+    
+    </div>
+  </div>
+
+  <div id="women-best" class="tab-content" style="display:none;">
+    <div class="gallery">
+      <!-- Women Best Items Images Here -->
+
+      <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6000.png" alt="women Look 1">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6000, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6001.png" alt="women Look 2">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6001, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6002.png" alt="women Look 3">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6002, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6003.png" alt="women Look 4">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6003, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6004.png" alt="women Look 5">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6004, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6005.png" alt="women Look 6">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6005, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6006.png" alt="women Look 7">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6006, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6007.png" alt="women Look 8">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6007, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6008.png" alt="women Look 9">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6008, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6009.png" alt="women Look 10">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6009, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6010.png" alt="women Look 11">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6010, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6011.png" alt="women Look 12">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6011, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6012.png" alt="women Look 13">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6012, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6013.png" alt="women Look 14">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6013, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6014.png" alt="women Look 15">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6014, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6015.png" alt="women Look 16">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6015, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6016.png" alt="women Look 17">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6016, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6017.png" alt="women Look 18">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6017, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6018.png" alt="women Look 19">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6018, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img src="/assets/img/musinsaImg/musinsaSubImgWomen/6019.png" alt="women Look 20">
+        <div class="gallery-item-info">
+            <button class="favorite-btn" onclick="addFavorite(6019, 'women', 'musinsa', 'best')">찜하기</button>
+        </div>
+    </div>
+    
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2024 Musinsa Standard Lookbook. All Rights Reserved.</p>
+  </div>
+</footer>
+<script>
+  let currentUser = null;
+
+  function showSection(sectionId) {
+    document.querySelectorAll('.section').forEach(section => {
+      section.style.display = 'none';
+    });
+    document.getElementById(sectionId).style.display = 'block';
+  }
+
+  function showTab(tabId, element) {
+    document.querySelectorAll('.tab-content').forEach(tab => {
+      tab.style.display = 'none';
+    });
+    document.querySelectorAll('.tabs button').forEach(button => {
+      button.classList.remove('active');
+    });
+    document.getElementById(tabId).style.display = 'block';
+    element.classList.add('active');
+  }
+
+  function addFavorite(photoId, gender, brand, tab) {
+    if (!currentUser) {
+      alert('Please log in to add favorites.');
+      return;
+    }
+
+    const memberId = currentUser.id;
+    fetch(`/favorites/add?memberId=${memberId}&photoId=${photoId}&gender=${gender}&brand=${brand}&tab=${tab}`, {
+      method: 'POST'
+    })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+              }
+              return response.text();
+            })
+            .then(data => {
+              alert(data);
+              console.log('Favorite added successfully:', data);
+            })
+            .catch(error => console.error('Error:', error));
+  }
+
+  function getCurrentUser() {
+    fetch('/current-user')
+            .then(response => response.json())
+            .then(user => {
+              currentUser = user;
+            })
+            .catch(error => console.error('Error:', error));
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    getCurrentUser();
+    document.querySelectorAll('.tabs button')[0].click();
+
+    const menuButton = document.querySelector('#menuButton');
+    const closeButton = document.querySelector('#closeButton');
+    const slideMenu = document.querySelector('#slideMenu');
+
+    if(menuButton) {
+      menuButton.addEventListener('click', function() {
+        slideMenu.classList.toggle('show');
+        menuButton.style.display = 'none';
+      });
+    }
+
+    if(closeButton) {
+      closeButton.addEventListener('click', function() {
+        slideMenu.classList.toggle('show');
+        menuButton.style.display = 'block';
+      });
+    }
+
+    document.querySelectorAll('.nav-link, .slide-menu a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth'
+          });
+          slideMenu.classList.remove('show');
+          menuButton.style.display = 'block';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

@@ -149,6 +149,26 @@ public class MemberController {
         addAuthenticatedUserNameToModel(model);
         return "topTenSub1";
     }
+    @GetMapping("/muSinSa")
+    public String musinsaPage(Model model) {
+        addAuthenticatedUserNameToModel(model);
+        return "muSinSa";
+    }
+    @GetMapping("/muSinSaSub1")
+    public String musinsaSub1Page(Model model) {
+        addAuthenticatedUserNameToModel(model);
+        return "muSinSaSub1";
+    }
+    @GetMapping("/uniQlo")
+    public String uniqloPage(Model model) {
+        addAuthenticatedUserNameToModel(model);
+        return "uniQlo";
+    }
+    @GetMapping("/uniQloSub1")
+    public String uniQloSub1Page(Model model) {
+        addAuthenticatedUserNameToModel(model);
+        return "uniQloSub1";
+    }
 
     private void addAuthenticatedUserNameToModel(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
