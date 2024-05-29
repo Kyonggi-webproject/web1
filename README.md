@@ -28,18 +28,18 @@
 
 ## 구성 (Configuration)
 
-`application.yml` 파일을 다음과 같이 설정합니다:
+프로젝트를 실행하기 전에 `application.yml` 파일을 설정해야 합니다. 아래 예시를 참고하여 각자의 환경에 맞게 수정하세요:
 
 ```yaml
 server:
-  port: 8123
+  port: 8123  # 임의의 포트번호로 변경 가능합니다.
 
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/web
-    username: bs_web
-    password: Rhdqudtjs1@
+    url: jdbc:mysql://localhost:3306/web  # 자신의 MySQL URL로 변경하세요.
+    username: your_mysql_username  # 자신의 MySQL username으로 변경하세요.
+    password: your_mysql_password  # 자신의 MySQL password로 변경하세요.
     hikari:
       maxLifetime: 1800000  # 30분
       idleTimeout: 600000   # 10분
@@ -52,8 +52,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: kongbyeongsun@gmail.com
-    password: bxpysaiubgwmwiko
+    username: your_gmail_username  # 자신의 Gmail 주소로 변경하세요.
+    password: your_gmail_app_password  # 자신의 Gmail 앱 비밀번호로 변경하세요.
     properties:
       mail:
         smtp:
