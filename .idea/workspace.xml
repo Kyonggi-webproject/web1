@@ -5,279 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53840e29-9225-49ad-b985-90910faead68" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/cosImg/cosSubImgMen/246.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/cosImg/cosSubImgMen/247.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/cosImg/cosSubImgWomen/244.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/cosImg/cosSubImgWomen/245.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/123.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/MUSINSA STANDARD 24SS COLLECTION.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/MUSINSA STANDARD Fall Winter 2023.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/MUSINSA_Logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/MUSINSA_concept.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1000.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1001.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1002.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1003.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1004.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1005.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1006.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1007.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1008.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1009.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1011.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1012.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1013.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1015.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1016.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1017.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1018.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/1019.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2000.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2001.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2002.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2003.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2004.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2005.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2006.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2007.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2008.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2009.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2011.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2012.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2013.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2015.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2016.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2017.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2018.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/2019.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3000.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3001.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3002.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3003.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3004.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3005.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3006.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3007.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3008.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3009.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3011.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3012.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3013.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgMen/3015.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4000.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4001.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4002.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4003.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4004.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4005.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4006.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4007.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4008.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4009.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4011.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4012.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4013.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4015.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4016.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4017.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4018.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/4019.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5000.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5001.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5002.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5003.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5004.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5005.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5006.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5007.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5008.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5009.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5011.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5012.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5013.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5015.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5016.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5017.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5018.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/5019.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6000.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6001.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6002.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6003.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6004.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6005.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6006.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6007.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6008.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6009.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6011.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6012.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6013.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6015.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6016.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6017.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6018.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen/6019.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/toptenImg/toptenSubImgMen/250.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/toptenImg/toptenSubImgMen/251.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/toptenImg/toptenSubImgWomen/248.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/toptenImg/toptenSubImgWomen/249.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/UNIQLO U 2023 Fall_ Winter Collection.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/UNIQLO_logo.svg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/Uniqlo U 2023 Spring_Summer.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/Uniqlo U Spring_Summer 2022 - New collection of essentials.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/UniqloPage_concept.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/cp_w_jacket_pc_video.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/goods_467111_sub13_video.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/101.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/102.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/103.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/104.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/105.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/106.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/107.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/108.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/109.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/110.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/111.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/112.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/113.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/114.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/115.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/200.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/201.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/202.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/203.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/204.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/205.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/206.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/207.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/208.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/209.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/210.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/300.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/301.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/302.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/303.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/304.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/305.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/306.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/307.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/308.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/309.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/310.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/311.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/312.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/313.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/314.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/315.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/316.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/317.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/318.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/319.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/600.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/601.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/602.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/603.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/604.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/605.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/606.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/607.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/608.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/609.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/610.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/611.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/612.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/613.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/614.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/615.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/616.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/617.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/618.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen/619.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/401.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/402.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/403.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/404.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/405.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/406.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/407.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/408.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/409.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/410.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/411.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/412.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/413.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/414.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/415.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/416.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/417.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/418.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/419.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/500.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/501.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/502.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/503.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/504.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/505.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/506.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/507.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/508.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/509.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/510.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/511.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/600.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/601.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/602.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/603.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/604.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/605.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/606.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/607.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/608.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/609.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/610.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/611.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/612.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/613.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/614.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/615.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/616.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/617.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/618.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen/619.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/videoframe_6037.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/costest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/muSinSa.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/muSinSaSub1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/uniQlo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/uniQloSub1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/profile/팀원사진1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/profile/팀원사진2.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/webLogin/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/webLogin/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cos.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cosSub1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cosSub1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/img/avataaars.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/myPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/myPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reset_password.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reset_password.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/topTen.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/topTen.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/topTenSub1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/topTenSub1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/uniqlo.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -360,11 +92,11 @@
       <recent name="$PROJECT_DIR$/web1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/assets/img/profile" />
       <recent name="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubWomen" />
       <recent name="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg/uniqloImgSubMen" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/src/main/resources/static/assets/img/uniqloImg" />
-      <recent name="$PROJECT_DIR$/src/main/resources/static/assets/img/musinsaImg/musinsaSubImgWomen" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="webLogin.service" />
@@ -396,6 +128,9 @@
       <workItem from="1716644424034" duration="32013000" />
       <workItem from="1716822807901" duration="15262000" />
       <workItem from="1716953546703" duration="9781000" />
+      <workItem from="1716999713625" duration="3569000" />
+      <workItem from="1717031849408" duration="2014000" />
+      <workItem from="1717042781021" duration="1479000" />
     </task>
     <servers />
   </component>
