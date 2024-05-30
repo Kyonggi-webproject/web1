@@ -9,7 +9,7 @@
 - Java 21
 - Spring Boot 3.2.4
 - MySQL 데이터베이스
-- 메일 전송을 위한 Gmail 계정
+- 비밀번호 찾기 기능 구현 ,전송을 위한  Gmail 계정
 
 ## 라이선스 (License)
 이 프로젝트는 MIT 라이선스 하에 배포됩니다.
